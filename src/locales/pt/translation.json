@@ -9,5 +9,12 @@
     "projects": "Meus projetos",
     "academy": "Academia",
     "origami": "Origame",
-    "recipes": "Recipes"
+    "recipes": "Receitas",
+    "register": "Cadastro",
+    "userName": "Nome do úsuario",
+    "age": "Idade",
+    "password": "Senha",
+    "confirmPassword": "Confirmar senha",
+    "phoneNumber": "Número de telefone",
+    "alreadyRegistered": "Já cadastrado"
 }

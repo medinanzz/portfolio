@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import { LayoutApp } from "../layout";
 import { HomePage } from "../home";
-import { Section2 } from "../pages/section2_about";
+import { RegisterFakePage } from "../pages/register";
 
 export function RouteApp() {
     return(
@@ -9,6 +9,7 @@ export function RouteApp() {
             <Routes>
                 <Route path="/" element={<LayoutApp />}>
                     <Route index element={<HomePage />} />
+                    <Route path="registerFake" element={<RegisterFakePage />}/>
                 </Route>
             </Routes>
         </>

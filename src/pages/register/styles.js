@@ -1,0 +1,97 @@
+import styled from "styled-components";
+
+export const RegisterFake = styled.div`
+  min-height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  fieldset {
+    border: none;
+    display: grid;
+    gap: 1em;
+  }
+
+  fieldset div {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  label {
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0px;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    position: absolute;
+  }
+
+  input {
+    border: none;
+    color: white;
+    outline: none;
+    background-color: transparent;
+    border-radius: 0.5em;
+    border-bottom: 2px solid rgb(0, 0, 185);
+    width: 200px;
+    padding: 0.7em;
+    height: 7dvh;
+  }
+
+  input:focus + label,
+  input:not(:placeholder-shown) + label {
+    top: 0;
+    padding: 0em 0.6em;
+    border-radius: 1em;
+    background-color: #1c1c1c;
+    font-size: 0.85em;
+  }
+
+  button {
+    width: 100%;
+    padding: 1em;
+    border-radius: 0.5em;
+    background-color: transparent;
+    font-size: 1.06em;
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:hover {
+      box-shadow: 0 0 10px rgb(255 255 255 / 0.5);
+    }
+  }
+
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input.error {
+    border-bottom: 2px solid red;
+  }
+
+  span {
+    color: #ff4d4f;
+    font-size: 0.75rem;
+    margin-top: 4px;
+    display: block;
+    font-weight: 500;
+    animation: fadeIn 0.2s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-3px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+`;
