@@ -14,13 +14,21 @@ export function RegisterFakePage() {
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
   const [isRegistered, setIsRegistered] = useState(false);
+  const [showPassword, setShowPassword] = useState({
+    password: false,
+    confirm: false,
+  });
 
+  const viewPasswordImg =
+    "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjBweCIgdmlld0JveD0iMCAtOTYwIDk2MCA5NjAiIHdpZHRoPSIyMHB4IiBmaWxsPSIjRkZGRkZGIj48cGF0aCBkPSJNNTk5LTM2MXE0OS00OSA0OS0xMTl0LTQ5LTExOXEtNDktNDktMTE5LTQ5dC0xMTkgNDlxLTQ5IDQ5LTQ5IDExOXQ0OSAxMTlxNDkgNDkgMTE5IDQ5dDExOS00OVptLTE4Ny01MXEtMjgtMjgtMjgtNjh0MjgtNjhxMjgtMjggNjgtMjh0NjggMjhxMjggMjggMjggNjh0LTI4IDY4cS0yOCAyOC02OCAyOHQtNjgtMjhaTTIyMC0yNzAuNVExMDMtMzQ5IDQ4LTQ4MHE1NS0xMzEgMTcyLTIwOS41VDQ4MC03NjhxMTQzIDAgMjYwIDc4LjVUOTEyLTQ4MHEtNTUgMTMxLTE3MiAyMDkuNVQ0ODAtMTkycS0xNDMgMC0yNjAtNzguNVpNNDgwLTQ4MFptMjA3IDE1OHE5NS01OCAxNDYtMTU4LTUxLTEwMC0xNDYtMTU4dC0yMDctNThxLTExMiAwLTIwNyA1OFQxMjctNDgwcTUxIDEwMCAxNDYgMTU4dDIwNyA1OHExMTIgMCAyMDctNThaIi8+PC9zdmc+";
+  const hidePasswordImg =
+    "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjBweCIgdmlld0JveD0iMCAtOTYwIDk2MCA5NjAiIHdpZHRoPSIyMHB4IiBmaWxsPSIjRkZGRkZGIj48cGF0aCBkPSJNNDU1LTk3cS03Ni01LTE0MS41LTM2LjV0LTExNC04My41cS00OC41LTUyLTc2LTExOS41VDk2LTQ4MHEwLTgwIDMwLTE0OS41dDgyLjUtMTIyUTI2MS04MDQgMzMxLTgzNHQxNDktMzBxODAgMCAxNDkuNSAzMHQxMjIgODIuNVE4MDQtNjk5IDgzNC02MjkuNVQ4NjQtNDgwdjE4cS0xNy05LTM1LTE1LjVUNzkyLTQ5MHEtNC0xMjctOTQtMjE0LjVUNDgwLTc5MnEtNTMgMC0xMDIgMTcuNVQyODctNzI0bDI0OCAyNDgtMzQgMTZxLTE3IDgtMzMgMTlMMjM2LTY3M3EtMzMgNDItNTAuNSA5MVQxNjgtNDgwcTAgOTcgNTQuNSAxNzZUMzY3LTE5MHExOCAyNyA0MCA1MHQ0OCA0M1ptMzM5LTk1cTUyLTI0IDg0LTcyLTMyLTQ4LTg0LTcydC0xMTAtMjRxLTU4IDAtMTEwIDI0dC04NCA3MnEzMiA0OCA4NCA3MnQxMTAgMjRxNTggMCAxMTAtMjRabS0yNzUgNTIuNVE0NDMtMTgzIDQwOC0yNjRxMzUtODEgMTExLTEyNC41VDY4NC00MzJxODkgMCAxNjUgNDMuNVQ5NjAtMjY0cS0zNSA4MS0xMTEgMTI0LjVUNjg0LTk2cS04OSAwLTE2NS00My41Wk02ODQtMjA0cS0yNSAwLTQyLjUtMTcuNVQ2MjQtMjY0cTAtMjUgMTcuNS00Mi41VDY4NC0zMjRxMjUgMCA0Mi41IDE3LjVUNzQ0LTI2NHEwIDI1LTE3LjUgNDIuNVQ2ODQtMjA0WiIvPjwvc3ZnPg==";
   useEffect(() => {
     const registered = localStorage.getItem("registered");
     if (registered === "true") {
       navigate("/");
     }
-  });
+  }, [navigate]);
 
   function registerUser() {
     const newErrors = {};
@@ -71,6 +79,16 @@ export function RegisterFakePage() {
     setIsRegistered(true);
     navigate("/");
   }
+
+  function togglePassword(field) {
+  setShowPassword(prev => ({
+    ...prev,
+    [field]: !prev[field],
+  }));
+}
+
+  console.log(showPassword);
+
   return (
     <RegisterFake>
       <fieldset title="Cadastro fake" autoComplete="off">
@@ -86,6 +104,7 @@ export function RegisterFakePage() {
           <label>{t("userName")}</label>
           {errors.userName && <span>{errors.userName}</span>}
         </div>
+
         <div className="div divAge div2">
           <input
             type="number"
@@ -98,9 +117,10 @@ export function RegisterFakePage() {
           <label>{t("age")}</label>
           {errors.ageUser && <span>{errors.ageUser}</span>}
         </div>
+
         <div className="div divEmail div3">
           <input
-            type="text"
+            type="email"
             placeholder=" "
             autoComplete="new-password"
             value={emailUser}
@@ -110,9 +130,10 @@ export function RegisterFakePage() {
           <label>Email</label>
           {errors.emailUser && <span>{errors.emailUser}</span>}
         </div>
+
         <div className="div divPassword div4">
           <input
-            type="password"
+            type={showPassword.password ? "text" : "password"}
             placeholder=" "
             autoComplete="off"
             value={passwordUser}
@@ -120,11 +141,23 @@ export function RegisterFakePage() {
             className={errors.passwordUser ? "error" : ""}
           />
           <label>{t("password")}</label>
+          <button
+            type="button"
+            onClick={() => togglePassword('password')}
+            className={!passwordUser ? "disabledBtn" : ""}
+            disabled={!passwordUser}
+          >
+            <img
+              src={showPassword.password ? hidePasswordImg : viewPasswordImg}
+              alt="View password"
+            />
+          </button>
           {errors.passwordUser && <span>{errors.passwordUser}</span>}
         </div>
+
         <div className="div divConfirm div5">
           <input
-            type="password"
+            type={showPassword.confirm ? "text" : "password"}
             placeholder=" "
             autoComplete="off"
             value={confirmPasswordUser}
@@ -132,13 +165,25 @@ export function RegisterFakePage() {
             className={errors.confirmPasswordUser ? "error" : ""}
           />
           <label>{t("confirmPassword")}</label>
+          <button
+            type="button"
+            onClick={() => togglePassword('confirm')}
+            className={!passwordUser ? "disabledBtn" : ""}
+            disabled={!passwordUser}
+          >
+            <img
+              src={showPassword.confirm ? hidePasswordImg : viewPasswordImg}
+              alt="View password"
+            />
+          </button>
           {errors.confirmPasswordUser && (
             <span>{errors.confirmPasswordUser}</span>
           )}
         </div>
+
         <div className="div divBtn div6">
           <button onClick={registerUser} disabled={isRegistered}>
-            {isRegistered ? t('alreadyRegistered') : t("register")}
+            {isRegistered ? t("alreadyRegistered") : t("register")}
           </button>
         </div>
       </fieldset>

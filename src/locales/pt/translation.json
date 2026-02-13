@@ -16,5 +16,7 @@
     "password": "Senha",
     "confirmPassword": "Confirmar senha",
     "phoneNumber": "Número de telefone",
-    "alreadyRegistered": "Já cadastrado"
+    "alreadyRegistered": "Já cadastrado",
+    "viewPassword": "Ver senha",
+    "hidePassword": "Ocultar senha"
 }

@@ -16,5 +16,7 @@
     "password": "Password",
     "confirmPassword": "Confirm password",
     "phoneNumber": "Phone number",
-    "alreadyRegistered": "Already registered"
+    "alreadyRegistered": "Already registered",
+    "viewPassword": "View password",
+    "hidePassword": "Hide password"
 }

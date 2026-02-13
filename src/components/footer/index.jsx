@@ -16,7 +16,7 @@ export function FooterPage() {
           <ul>
             <li>
               <a
-                href="#"
+                href="https://www.instagram.com/apolo.medina/"
                 className="a"
                 onMouseEnter={() => setHovered("insta")}
                 onMouseLeave={() => setHovered(null)}
@@ -36,7 +36,7 @@ export function FooterPage() {
             </li>
             <li>
               <a
-                href="#"
+                href="https://github.com/medinanzz"
                 className="a"
                 onMouseEnter={() => setHovered("git")}
                 onMouseLeave={() => setHovered(null)}

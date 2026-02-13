@@ -22,10 +22,11 @@ export const RegisterFake = styled.div`
   label {
     top: 50%;
     transform: translateY(-50%);
-    left: 0px;
+    left: 5px;
     transition: all 0.3s ease;
     pointer-events: none;
     position: absolute;
+    font-size: 0.95em;
   }
 
   input {
@@ -33,7 +34,6 @@ export const RegisterFake = styled.div`
     color: white;
     outline: none;
     background-color: transparent;
-    border-radius: 0.5em;
     border-bottom: 2px solid rgb(0, 0, 185);
     width: 200px;
     padding: 0.7em;
@@ -93,5 +93,30 @@ export const RegisterFake = styled.div`
       opacity: 1;
       transform: translateY(0);
     }
+  }
+
+  .divPassword button,
+  .divConfirm button {
+    width: 10px;
+    height: 10px;
+    border: none;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+
+    &:hover {
+      box-shadow: none;
+    }
+  }
+
+  .divPassword button:disabled,
+  .divConfirm button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
   }
 `;
