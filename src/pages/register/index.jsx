@@ -67,25 +67,29 @@ export function RegisterFakePage() {
     if (Object.keys(newErrors).length > 0) {
       return;
     }
+    
+        localStorage.setItem(
+          "user",
+          JSON.stringify({
+            userName,
+            emailUser,
+            ageUser,
+            passwordUser,
+          }),
+        );
+        localStorage.setItem("registered", "true");
 
     swal("Sucesso!", "Cadastro realizado!", "success");
-
-    setUserName("");
-    setAgeUser("");
-    setEmailUser("");
-    setPassword("");
-    setConfirmPassword("");
-    localStorage.setItem("registered", "true");
     setIsRegistered(true);
     navigate("/");
   }
-
+  
   function togglePassword(field) {
-  setShowPassword(prev => ({
-    ...prev,
-    [field]: !prev[field],
-  }));
-}
+    setShowPassword((prev) => ({
+      ...prev,
+      [field]: !prev[field],
+    }));
+  }
 
   console.log(showPassword);
 
@@ -143,7 +147,7 @@ export function RegisterFakePage() {
           <label>{t("password")}</label>
           <button
             type="button"
-            onClick={() => togglePassword('password')}
+            onClick={() => togglePassword("password")}
             className={!passwordUser ? "disabledBtn" : ""}
             disabled={!passwordUser}
           >
@@ -167,7 +171,7 @@ export function RegisterFakePage() {
           <label>{t("confirmPassword")}</label>
           <button
             type="button"
-            onClick={() => togglePassword('confirm')}
+            onClick={() => togglePassword("confirm")}
             className={!passwordUser ? "disabledBtn" : ""}
             disabled={!passwordUser}
           >

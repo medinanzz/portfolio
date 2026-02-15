@@ -1,13 +1,15 @@
 // import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { NavContainer, StyledLink, UlContainer } from "./styles";
+import { BtnPerfil, NavContainer, StyledLink, UlContainer } from "./styles";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
+import { PerfilPage } from "../../pages/perfil";
 
 export function NavBarPage({ open, onClose }) {
   const navigate = useNavigate();
   const { t } = useTranslation();
   const [isRegistered, setIsRegistered] = useState(false);
+  const [seePerfil, setSeePerfil] = useState(false);
 
   useEffect(() => {
     const checkRegistered = () => {
@@ -44,9 +46,12 @@ export function NavBarPage({ open, onClose }) {
   };
   return (
     <NavContainer className={open ? "open" : ""}>
-      <button className="close-btn" onClick={onClose}>
+      <button className="close-btn btn-img-menu" onClick={onClose}>
         X
       </button>
+      <h1 className="t1">
+        <span className="t-span">&lt;/AM&gt;</span>
+      </h1>
       <UlContainer>
         <li>
           <button
@@ -82,9 +87,11 @@ export function NavBarPage({ open, onClose }) {
           </button>
         </li>
       </UlContainer>
-      <UlContainer>
+      <ul style={{ listStyle: "none" }}>
         <li>
-          <StyledLink onClick={{onClose}}
+          <StyledLink onClick={() => {
+            onClose();
+          }}
             to="/registerFake"
             style={{
               pointerEvents: isRegistered ? "none" : "auto",
@@ -94,7 +101,14 @@ export function NavBarPage({ open, onClose }) {
             {isRegistered ? t("alreadyRegistered") : t("register")}
           </StyledLink>
         </li>
-      </UlContainer>
+        <li>
+          <BtnPerfil onClick={() => setSeePerfil(!seePerfil)}>Perfil</BtnPerfil>
+        </li>
+
+        <li>
+          <PerfilPage seePerfil={seePerfil} />
+        </li>
+      </ul>
     </NavContainer>
   );
 }

@@ -17,6 +17,18 @@ export const DivHeader = styled.div`
 
   h1 {
     margin: 0;
+    span {
+      letter-spacing: 5px;
+      font-family: "Fruktur", system-ui;
+    }
+  }
+
+  @media screen and (width >= 700px) {
+    z-index: 0;
+    /* position: ; */
+    h1 {
+      display: none;
+    }
   }
 `;
 
@@ -28,11 +40,15 @@ export const BtnOpenMenu = styled.button`
     width: 30px;
     height: 30px;
   }
+  @media screen and (width >= 600px) {
+    display: none;
+  }
 `;
 
 export const DivTranslation = styled.div`
   display: flex;
   flex-direction: column;
+  gap: .4em;
 
   @media screen and (width >= 600px) {
     flex-direction: row;

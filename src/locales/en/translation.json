@@ -3,7 +3,7 @@
     "about": "About Me",
     "contact": "Contact",
     "titleSection2": "hi, my name's Apolo. This is my protfolio, I'm web developer and I can HTML, CSS and a little bit of JS.",
-    "titleSection_2": "I'm learning React JSX, I've done several projects in HTML, CSS, and JS, and only one in React JSX. I'm developing this project in React JSX.",
+    "titleSection_2": "I'm taking a React JSX course. I've done some projects in HTML, CSS, and JavaScript, and only one in React JSX. This project is being developed with React JSX",
     "titleSection1": "Hi, click here for see my projects.",
     "seeProjects": "See projects",
     "projects": "My projects",
@@ -18,5 +18,6 @@
     "phoneNumber": "Phone number",
     "alreadyRegistered": "Already registered",
     "viewPassword": "View password",
-    "hidePassword": "Hide password"
+    "hidePassword": "Hide password",
+    "name": "Name"
 }

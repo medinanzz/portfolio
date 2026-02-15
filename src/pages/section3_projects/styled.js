@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const DivProjects = styled.div`
-  min-height: 100%;
+  /* min-height: 100%; */
   width: 100%;
 
   ul {

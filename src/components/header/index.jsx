@@ -15,7 +15,6 @@ export function HeaderPage({ onOpenMenu }) {
         <DivTranslation>
           <button
             onClick={() => i18n.changeLanguage("pt")}
-            style={{ marginRight: "0.5rem" }}
           >
             PT
           </button>
