@@ -119,4 +119,8 @@ export const RegisterFake = styled.div`
     opacity: 0.5;
     cursor: not-allowed;
   }
+
+  @media screen and (width >= 700px) {
+    grid-column: 2 / -1;
+  }
 `;

@@ -64,7 +64,6 @@ export const GlboalStyle = createGlobalStyle`
                 bottom: 0;
                 grid-column: 1 / -1;
                 margin-left: 250px;
-                /* grid-row:  3 / 1; */
             }
         }
     }

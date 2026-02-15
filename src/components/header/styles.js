@@ -50,7 +50,7 @@ export const DivTranslation = styled.div`
   flex-direction: column;
   gap: .4em;
 
-  @media screen and (width >= 600px) {
+  @media screen and (width >= 700px) {
     flex-direction: row;
   }
   button {

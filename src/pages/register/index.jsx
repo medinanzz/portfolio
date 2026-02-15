@@ -94,7 +94,7 @@ export function RegisterFakePage() {
   console.log(showPassword);
 
   return (
-    <RegisterFake>
+    <RegisterFake className="registerFake">
       <fieldset title="Cadastro fake" autoComplete="off">
         <div className="div divUsernName div1">
           <input
