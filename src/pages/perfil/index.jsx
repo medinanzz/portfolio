@@ -2,7 +2,7 @@ import { DivPerfil } from "./styles";
 import { useTranslation } from "react-i18next";
 
 export function PerfilPage({ seePerfil }) {
-    const userString = localStorage.getItem("user");
+    const userString = sessionStorage.getItem("user");
   const user = userString ? JSON.parse(userString) : null;
   const { t } = useTranslation();
 
@@ -10,7 +10,7 @@ export function PerfilPage({ seePerfil }) {
   if (!user) {
     return <DivPerfil>
         <div className={`perfil ${seePerfil ? 'ativo' : ''}`}>
-            <p>Nenhum usuário cadastrado</p>
+            <p>{t('perfilError')}</p>
         </div>
     </DivPerfil>;
   }

@@ -24,8 +24,8 @@ export const DivHeader = styled.div`
   }
 
   @media screen and (width >= 700px) {
-    z-index: 0;
-    /* position: ; */
+    position: fixed;
+    z-index: 10;
     h1 {
       display: none;
     }

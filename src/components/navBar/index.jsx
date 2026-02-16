@@ -4,26 +4,19 @@ import { BtnPerfil, NavContainer, StyledLink, UlContainer } from "./styles";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { PerfilPage } from "../../pages/perfil";
-
 export function NavBarPage({ open, onClose }) {
   const navigate = useNavigate();
   const { t } = useTranslation();
   const [isRegistered, setIsRegistered] = useState(false);
   const [seePerfil, setSeePerfil] = useState(false);
 
-  useEffect(() => {
+   useEffect(() => {
     const checkRegistered = () => {
-      const registered = localStorage.getItem("registered");
+      const registered = sessionStorage.getItem("registered");
       setIsRegistered(registered === "true");
     };
 
-    checkRegistered(); // verifica ao montar
-
-    window.addEventListener("storage", checkRegistered);
-
-    return () => {
-      window.removeEventListener("storage", checkRegistered);
-    };
+    checkRegistered();
   }, []);
 
   const aboutMe = () => {

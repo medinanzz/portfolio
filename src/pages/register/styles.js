@@ -23,6 +23,7 @@ export const RegisterFake = styled.div`
     top: 50%;
     transform: translateY(-50%);
     left: 5px;
+    /* z-index: 0; */
     transition: all 0.3s ease;
     pointer-events: none;
     position: absolute;
@@ -103,7 +104,7 @@ export const RegisterFake = styled.div`
     position: absolute;
     right: 0;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-100%);
     display: flex;
     justify-content: center;
     align-items: center;

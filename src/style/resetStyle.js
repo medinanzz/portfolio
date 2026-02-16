@@ -29,6 +29,7 @@ export const GlboalStyle = createGlobalStyle`
                 grid-column: 1 / -1;
                 position: fixed;
                 top: 0;
+                z-index: 99;
                 width: 250px;
                 background-color: #111111;
                 backdrop-filter: blur(0px);
@@ -38,7 +39,7 @@ export const GlboalStyle = createGlobalStyle`
                 align-items: center;
                 display: flex;
                 justify-content: end;
-                z-index: 0;
+                /* z-index: 0; */
                 background-color: #1c1c1c;
                 height: 80px;
                 /* position: ; */

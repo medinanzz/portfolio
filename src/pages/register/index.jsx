@@ -24,7 +24,7 @@ export function RegisterFakePage() {
   const hidePasswordImg =
     "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjBweCIgdmlld0JveD0iMCAtOTYwIDk2MCA5NjAiIHdpZHRoPSIyMHB4IiBmaWxsPSIjRkZGRkZGIj48cGF0aCBkPSJNNDU1LTk3cS03Ni01LTE0MS41LTM2LjV0LTExNC04My41cS00OC41LTUyLTc2LTExOS41VDk2LTQ4MHEwLTgwIDMwLTE0OS41dDgyLjUtMTIyUTI2MS04MDQgMzMxLTgzNHQxNDktMzBxODAgMCAxNDkuNSAzMHQxMjIgODIuNVE4MDQtNjk5IDgzNC02MjkuNVQ4NjQtNDgwdjE4cS0xNy05LTM1LTE1LjVUNzkyLTQ5MHEtNC0xMjctOTQtMjE0LjVUNDgwLTc5MnEtNTMgMC0xMDIgMTcuNVQyODctNzI0bDI0OCAyNDgtMzQgMTZxLTE3IDgtMzMgMTlMMjM2LTY3M3EtMzMgNDItNTAuNSA5MVQxNjgtNDgwcTAgOTcgNTQuNSAxNzZUMzY3LTE5MHExOCAyNyA0MCA1MHQ0OCA0M1ptMzM5LTk1cTUyLTI0IDg0LTcyLTMyLTQ4LTg0LTcydC0xMTAtMjRxLTU4IDAtMTEwIDI0dC04NCA3MnEzMiA0OCA4NCA3MnQxMTAgMjRxNTggMCAxMTAtMjRabS0yNzUgNTIuNVE0NDMtMTgzIDQwOC0yNjRxMzUtODEgMTExLTEyNC41VDY4NC00MzJxODkgMCAxNjUgNDMuNVQ5NjAtMjY0cS0zNSA4MS0xMTEgMTI0LjVUNjg0LTk2cS04OSAwLTE2NS00My41Wk02ODQtMjA0cS0yNSAwLTQyLjUtMTcuNVQ2MjQtMjY0cTAtMjUgMTcuNS00Mi41VDY4NC0zMjRxMjUgMCA0Mi41IDE3LjVUNzQ0LTI2NHEwIDI1LTE3LjUgNDIuNVQ2ODQtMjA0WiIvPjwvc3ZnPg==";
   useEffect(() => {
-    const registered = localStorage.getItem("registered");
+    const registered = sessionStorage.getItem("registered");
     if (registered === "true") {
       navigate("/");
     }
@@ -34,33 +34,31 @@ export function RegisterFakePage() {
     const newErrors = {};
 
     if (!userName.trim()) {
-      newErrors.userName = "Nome muito curto";
+      newErrors.userName = 'errorName';
     } else if (userName.length <= 3) {
-      newErrors.userName = "Preencha o campo!";
+      newErrors.userName = 'errorName2';
     }
-
-    if (emailUser && (!emailUser.includes("@") || !emailUser.includes("."))) {
-      newErrors.emailUser = "O email deve conter '@' ou '.'";
-    } else if (!emailUser.trim()) {
-      newErrors.emailUser = "Email inválido";
+    
+    if (!emailUser.trim()) {
+      newErrors.emailUser = 'errorEmail';
     }
 
     if (passwordUser && passwordUser.length < 6) {
       newErrors.passwordUser = "Mínimo 6 caracteres";
     } else if (!passwordUser.trim()) {
-      newErrors.passwordUser = "O campo deve ser preenchido";
+      newErrors.passwordUser = 'errorPassword';
     }
 
     if (!confirmPasswordUser.trim()) {
-      newErrors.confirmPasswordUser = "Senhas não coincidem";
+      newErrors.confirmPasswordUser = 'errorConfirm';
     }
 
     if (Number(ageUser) <= 5) {
-      newErrors.ageUser = "Você deve ter pelo menos 5 anos!";
+      newErrors.ageUser = 'errorAge';
     }
 
     if (confirmPasswordUser && confirmPasswordUser !== passwordUser) {
-      newErrors.confirmPasswordUser = "Senhas não coincidem";
+      newErrors.confirmPasswordUser = 'errorConfirm';
     }
 
     setErrors(newErrors);
@@ -68,18 +66,19 @@ export function RegisterFakePage() {
       return;
     }
     
-        localStorage.setItem(
-          "user",
-          JSON.stringify({
-            userName,
-            emailUser,
-            ageUser,
-            passwordUser,
-          }),
-        );
-        localStorage.setItem("registered", "true");
+    sessionStorage.setItem(
+      "user",
+      JSON.stringify({
+        userName,
+        emailUser,
+        ageUser,
+        passwordUser,
+      })
+    );
 
-    swal("Sucesso!", "Cadastro realizado!", "success");
+    sessionStorage.setItem("registered", "true");
+
+    swal(t('successRegister'), t('successRegister2'), "success");
     setIsRegistered(true);
     navigate("/");
   }
@@ -106,7 +105,7 @@ export function RegisterFakePage() {
             className={errors.userName ? "error" : ""}
           />
           <label>{t("userName")}</label>
-          {errors.userName && <span>{errors.userName}</span>}
+          {errors.userName && <span>{t(errors.userName)}</span>}
         </div>
 
         <div className="div divAge div2">
@@ -119,7 +118,7 @@ export function RegisterFakePage() {
             className={errors.ageUser ? "error" : ""}
           />
           <label>{t("age")}</label>
-          {errors.ageUser && <span>{errors.ageUser}</span>}
+          {errors.ageUser && <span>{t(errors.ageUser)}</span>}
         </div>
 
         <div className="div divEmail div3">
@@ -132,7 +131,7 @@ export function RegisterFakePage() {
             className={errors.emailUser ? "error" : ""}
           />
           <label>Email</label>
-          {errors.emailUser && <span>{errors.emailUser}</span>}
+          {errors.emailUser && <span>{t(errors.emailUser)}</span>}
         </div>
 
         <div className="div divPassword div4">
@@ -156,7 +155,7 @@ export function RegisterFakePage() {
               alt="View password"
             />
           </button>
-          {errors.passwordUser && <span>{errors.passwordUser}</span>}
+          {errors.passwordUser && <span>{t(errors.passwordUser)}</span>}
         </div>
 
         <div className="div divConfirm div5">
@@ -181,7 +180,7 @@ export function RegisterFakePage() {
             />
           </button>
           {errors.confirmPasswordUser && (
-            <span>{errors.confirmPasswordUser}</span>
+            <span>{t(errors.confirmPasswordUser)}</span>
           )}
         </div>
 

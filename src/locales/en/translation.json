@@ -19,5 +19,17 @@
     "alreadyRegistered": "Already registered",
     "viewPassword": "View password",
     "hidePassword": "Hide password",
-    "name": "Name"
+
+    "name": "Name",
+
+    "errorName": "Very short name",
+    "errorAge": "You must be at least 5 years old!",
+    "errorEmail": "Invalid email address",
+    "errorPassword": "The field must be filled in.",
+    "errorConfirm": "Passwords don't match.",
+    "errorName2": "Fill in the field",
+
+    "perfilError": "No users registered.",
+    "successRegister": "Success!",
+    "successRegister2": "Registration completed"
 }

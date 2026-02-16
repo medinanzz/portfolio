@@ -20,5 +20,16 @@
     "viewPassword": "Ver senha",
     "hidePassword": "Ocultar senha",
 
-    "name": "Nome"
+    "name": "Nome",
+
+    "errorName": "Nome muito curto",
+    "errorAge": "Você deve ter pelo menos 5 anos!",
+    "errorEmail": "Email inválido",
+    "errorPassword": "O campo deve ser preenchido",
+    "errorConfirm": "Senhas não coincidem",
+    "errorName2": "Preencha o campo",
+
+    "perfilError": "Nenhum úsuario cadastrado",
+    "successRegister": "Sucesso!",
+    "successRegister2": "Cadastro realizado"
 }
