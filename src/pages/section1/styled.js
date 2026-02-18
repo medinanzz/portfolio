@@ -25,8 +25,8 @@ export const Divprojectsbtn = styled.div`
     border: none;
     justify-content: center;
     align-items: center;
-    color: white;
-    background-color: #2a2a2a;
+    color: ${props => props.theme.textBtn};
+    background-color: ${props => props.theme.backgroundBtn};
     width: 200px;
     height: 7dvh;
     color: #fff;
@@ -37,19 +37,20 @@ export const Divprojectsbtn = styled.div`
   .shadowBottom {
     width: 40px;
     height: 20px;
-    background-color: #414141bb;
+    background-color: #41414167;
     border-radius: 50%;
     margin-top: 10px;
     display: block;
     transition: all 0.1s ease;
     transform: scaleX(1.5);
   }
-
+  
   .a:active {
     transform: translateY(3px);
   }
-
+  
   .a:active ~ .shadowBottom {
+    background-color: #414141c9;
     transform: scale(.95);
   }
 `;

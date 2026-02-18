@@ -4,6 +4,7 @@ import { BtnPerfil, NavContainer, StyledLink, UlContainer } from "./styles";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { PerfilPage } from "../../pages/perfil";
+import { FiX } from "react-icons/fi";
 export function NavBarPage({ open, onClose }) {
   const navigate = useNavigate();
   const { t } = useTranslation();
@@ -40,7 +41,7 @@ export function NavBarPage({ open, onClose }) {
   return (
     <NavContainer className={open ? "open" : ""}>
       <button className="close-btn btn-img-menu" onClick={onClose}>
-        X
+        <FiX size={20} />
       </button>
       <h1 className="t1">
         <span className="t-span">&lt;/AM&gt;</span>

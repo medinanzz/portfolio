@@ -4,7 +4,7 @@ export const DivPerfil = styled.div`
     .perfil {
         position: absolute;
         bottom: 1em;
-        background-color: #2b2b2b;
+        background-color: ${props => props.theme.background};
         padding: 1em 0 1em 1em;
         border-radius: 0.5em;
         z-index: 1;
@@ -14,6 +14,7 @@ export const DivPerfil = styled.div`
         pointer-events: initial;
         opacity: 0;
         transition: all .3s;
+        box-shadow: ${props => props.theme.shadow};
     }
 
     .perfil.ativo {

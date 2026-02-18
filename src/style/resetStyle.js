@@ -1,23 +1,20 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlboalStyle = createGlobalStyle`
-    @import url('https://fonts.googleapis.com/css2?family=Fruktur:ital@0;1&display=swap');
     * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        font-family: Arial, Helvetica, sans-serif;
-        /* font-family: "Fruktur", system-ui; */
+        font-family: "Poppins", Arial, Helvetica, sans-serif;
     }
 
     html, body {
         scroll-behavior: smooth;
     }
-
     #root {
         min-height: 100dvh;
-        background-color: #1c1c1c;
-        color: white;
+        background-color: ${props => props.theme.background};
+        color: ${props => props.theme.text};
 
         @media screen and (width >= 700px) {
             display: grid;
@@ -31,8 +28,9 @@ export const GlboalStyle = createGlobalStyle`
                 top: 0;
                 z-index: 99;
                 width: 250px;
-                background-color: #111111;
+                background-color: ${props => props.theme.background};
                 backdrop-filter: blur(0px);
+                box-shadow: ${props => props.theme.shadow};
             }
             header div, header {
                 grid-column: 2 / -1;
@@ -40,7 +38,7 @@ export const GlboalStyle = createGlobalStyle`
                 display: flex;
                 justify-content: end;
                 /* z-index: 0; */
-                background-color: #1c1c1c;
+                background-color: ${props => props.theme.backgroundHeader};
                 height: 80px;
                 /* position: ; */
             }
@@ -48,7 +46,7 @@ export const GlboalStyle = createGlobalStyle`
             header {
                 position: relative;
                 width: 100%;
-                box-shadow: 5px 0 10px #ffffff6a;
+                box-shadow: ${props => props.theme.shadow};
             }
             main {
                 grid-column: 2 / -1;

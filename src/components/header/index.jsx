@@ -1,10 +1,17 @@
-import { BtnOpenMenu, DivHeader, DivTranslation } from "./styles";
+import { FiMenu, FiMoon, FiSun } from "react-icons/fi";
+import { BtnOpenMenu, ButtonGlobalStyle, DivHeader, DivTranslation } from "./styles";
 import { useTranslation } from "react-i18next";
+import styled from "styled-components";
 
-export function HeaderPage({ onOpenMenu }) {
+export const DivThemeMenu = styled.div`
+  display: flex;
+  justify-content: space-between;
+  gap: 1em;
+  align-items: center;
+`;
+
+export function HeaderPage({ onOpenMenu, theme, setTheme }) {
   const { i18n } = useTranslation();
-  const MenuImg =
-    "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjBweCIgdmlld0JveD0iMCAtOTYwIDk2MCA5NjAiIHdpZHRoPSIyMHB4IiBmaWxsPSIjRkZGRkZGIj48cGF0aCBkPSJNMTQ0LTI2NHYtNzJoNjcydjcySDE0NFptMC0xODB2LTcyaDY3MnY3MkgxNDRabTAtMTgwdi03Mmg2NzJ2NzJIMTQ0WiIvPjwvc3ZnPg==";
 
   return (
     <header id="header">
@@ -13,16 +20,22 @@ export function HeaderPage({ onOpenMenu }) {
           <span className="t-span">&lt;/AM&gt;</span>
         </h1>
         <DivTranslation>
-          <button
-            onClick={() => i18n.changeLanguage("pt")}
-          >
+          <ButtonGlobalStyle
+            onClick={() => i18n.changeLanguage("pt")}>
             PT
-          </button>
-          <button onClick={() => i18n.changeLanguage("en")}>EN</button>
+          </ButtonGlobalStyle>
+          <ButtonGlobalStyle onClick={() => i18n.changeLanguage("en")}>
+            EN
+          </ButtonGlobalStyle>
         </DivTranslation>
-        <BtnOpenMenu onClick={onOpenMenu}>
-          <img src={MenuImg} alt="Menu open" />
-        </BtnOpenMenu>
+        <DivThemeMenu>
+          <ButtonGlobalStyle onClick={() => setTheme(!theme)} className="btnTheme">
+            {theme ? <FiMoon size={20} /> : <FiSun size={20} />}
+          </ButtonGlobalStyle>
+          <BtnOpenMenu onClick={onOpenMenu}>
+            <FiMenu size={20} />
+          </BtnOpenMenu>
+        </DivThemeMenu>
       </DivHeader>
     </header>
   );

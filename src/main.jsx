@@ -9,7 +9,6 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <HashRouter>
       <RouteApp />
-      <GlboalStyle />
     </HashRouter>
   </StrictMode>,
 )

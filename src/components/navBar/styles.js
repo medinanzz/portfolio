@@ -6,8 +6,8 @@ export const NavContainer = styled.nav`
   right: -260px;
   width: 260px;
   bottom: 0;
-  background: #111111ae;
-  backdrop-filter: blur(5px);
+  background: ${props => props.theme.backgroundMenu};
+  backdrop-filter: blur(10px);
   padding: 2rem 1rem;
   transition: 0.3s ease;
   z-index: 999;
@@ -16,23 +16,36 @@ export const NavContainer = styled.nav`
   justify-content: space-between;
 
   &.open {
-    box-shadow: 0 0 20px rgb(255 255 255 / 0.3);
+    box-shadow: ${props => props.theme.shadow};
     right: 0;
   }
 
   .close-btn {
     background: none;
     border: none;
-    color: #fff;
+    color: ${props => props.theme.text};
     font-size: 1.5rem;
     cursor: pointer;
     margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
     top: .4em;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    transition: all 0.3s;
+    
+    &:hover {
+      box-shadow: ${props => props.theme.shadow};
+      /* box-shadow: 0 0 10px rgb(255 255 255 / 0.5); */
+    }
   }
 
   h1 {
     display: none;
+    color: ${props => props.theme.text};
   }
 
   button {
@@ -48,7 +61,7 @@ export const NavContainer = styled.nav`
     flex-direction: column;
   }
 
-  @media screen and (width >= 700px) {
+  @media screen and (width > 700px) {
     position: relative;
     left: 0;
     z-index: 0;
@@ -63,13 +76,8 @@ export const NavContainer = styled.nav`
     }
     h1 {
       display: block;
-      span {
-        font-family: "Fruktur", system-ui;
-        letter-spacing: 5px;
-        margin-left: .5em;
       }
     }
-  }
 `;
 
 export const UlContainer = styled.ul`
@@ -81,7 +89,7 @@ export const UlContainer = styled.ul`
   gap: 0.7rem;
 
   button {
-    color: #fff;
+    color: ${props => props.theme.text};
     text-decoration: none;
     font-size: 1.2rem;
     background-color: transparent;
@@ -96,13 +104,13 @@ export const UlContainer = styled.ul`
 
     &:hover {
       /* scale: 1.1; */
-      box-shadow: 0 0 10px rgb(255 255 255 / 0.5);
+      box-shadow: ${props => props.theme.shadow};
     }
   }
 `;
 
 export const StyledLink = styled(Link)`
-  color: #fff;
+  color: ${props => props.theme.text};
     text-decoration: none;
     font-size: 1.2rem;
     background-color: transparent;
@@ -116,12 +124,12 @@ export const StyledLink = styled(Link)`
     border-radius: .5em;
 
     &:hover {
-      box-shadow: 0 0 10px rgb(255 255 255 / 0.5);
+      box-shadow: ${props => props.theme.shadow};
     }
 `;
 
 export const BtnPerfil = styled.button`
-  color: #fff;
+  color: ${props => props.theme.text};
     text-decoration: none;
     font-size: 1.2rem;
     background-color: transparent;
@@ -135,6 +143,6 @@ export const BtnPerfil = styled.button`
     align-items: center;
 
     &:hover {
-      box-shadow: 0 0 10px rgb(255 255 255 / 0.5);
+      box-shadow: ${props => props.theme.shadow};
     }
 `;

@@ -7,6 +7,11 @@ export const RegisterFake = styled.div`
   align-items: center;
   flex-direction: column;
 
+  .icon {
+    color: ${props => props.theme.text};
+    font-size: 1.2em;
+  }
+
   fieldset {
     border: none;
     display: grid;
@@ -23,7 +28,6 @@ export const RegisterFake = styled.div`
     top: 50%;
     transform: translateY(-50%);
     left: 5px;
-    /* z-index: 0; */
     transition: all 0.3s ease;
     pointer-events: none;
     position: absolute;
@@ -32,7 +36,7 @@ export const RegisterFake = styled.div`
 
   input {
     border: none;
-    color: white;
+    color: ${props => props.theme.text};
     outline: none;
     background-color: transparent;
     border-bottom: 2px solid rgb(0, 0, 185);
@@ -46,7 +50,7 @@ export const RegisterFake = styled.div`
     top: 0;
     padding: 0em 0.6em;
     border-radius: 1em;
-    background-color: #1c1c1c;
+    background-color: ${props => props.theme.background};
     font-size: 0.85em;
   }
 
@@ -57,12 +61,12 @@ export const RegisterFake = styled.div`
     background-color: transparent;
     font-size: 1.06em;
     border: none;
-    color: white;
+    color: ${props => props.theme.textBtn};
     cursor: pointer;
     transition: all 0.3s;
 
     &:hover {
-      box-shadow: 0 0 10px rgb(255 255 255 / 0.5);
+      box-shadow: ${props => props.theme.shadow};
     }
   }
 
@@ -104,7 +108,7 @@ export const RegisterFake = styled.div`
     position: absolute;
     right: 0;
     top: 50%;
-    transform: translateY(-100%);
+    transform: translateY(-50%);
     display: flex;
     justify-content: center;
     align-items: center;

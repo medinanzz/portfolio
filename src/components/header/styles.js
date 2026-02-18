@@ -1,45 +1,55 @@
 import styled from "styled-components";
 
-/* Header */
 export const DivHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  box-shadow: 0 0 10px rgb(255 255 255 / .5);
+  box-shadow: ${props => props.theme.shadow};
   position: fixed;
   top: 0;
-  background-color: #1c1c1c87;
+  background-color: ${props => props.theme.backgroundHeader};
   backdrop-filter: blur(10px);
   z-index: 1;
   width: 100%;
-  color: #fff;
+  color: ${props => props.theme.text};
 
   h1 {
     margin: 0;
-    span {
-      letter-spacing: 5px;
-      font-family: "Fruktur", system-ui;
-    }
   }
 
-  @media screen and (width >= 700px) {
+  @media screen and (width > 700px) {
     position: fixed;
     z-index: 10;
     h1 {
       display: none;
     }
   }
+
+  div:has(.btnTheme) {
+    margin-left: 1em;
+  }
 `;
 
 export const BtnOpenMenu = styled.button`
-  background: none;
+  background: transparent;
   border: none;
   cursor: pointer;
-  img {
-    width: 30px;
-    height: 30px;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: ${props => props.theme.text};
+  transition: .3s;
+
+
+  &:hover {
+    box-shadow: ${props => props.theme.shadow};
+    scale: 1.1;
   }
+
   @media screen and (width >= 600px) {
     display: none;
   }
@@ -47,25 +57,26 @@ export const BtnOpenMenu = styled.button`
 
 export const DivTranslation = styled.div`
   display: flex;
-  flex-direction: column;
-  gap: .4em;
-
-  @media screen and (width >= 700px) {
-    flex-direction: row;
-  }
-  button {
-    width: 120px;
-    border: 0;
-    background-color: transparent;
-    border-radius: .4em;
-    color: white;
-    transition: all .2s;
-    height: 5dvh;
-
-    &:hover {
-      box-shadow: 0 0 10px #ffffff95;
-      scale: 1.1;
-    }
-  }
+  flex-direction: row;
+  gap: 1em;
 `;
 
+export const ButtonGlobalStyle = styled.button`
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    border: 0;
+    background-color: transparent;
+    border-radius: 50%;
+    color: white;
+    transition: all .2s;
+    color: ${props => props.theme.text};
+    border-radius: 50%;
+
+    &:hover {
+      box-shadow: ${props => props.theme.shadow};
+      scale: 1.1;
+    }
+`;
