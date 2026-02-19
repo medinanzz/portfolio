@@ -88,7 +88,7 @@ export const UlContainer = styled.ul`
   flex-direction: column;
   gap: 0.7rem;
 
-  button {
+  button, a {
     color: ${props => props.theme.text};
     text-decoration: none;
     font-size: 1.2rem;
@@ -106,6 +106,10 @@ export const UlContainer = styled.ul`
       /* scale: 1.1; */
       box-shadow: ${props => props.theme.shadow};
     }
+  }
+
+  a {
+    height: 10dvh;
   }
 `;
 

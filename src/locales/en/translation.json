@@ -4,6 +4,8 @@
     "contact": "Contact",
     "titleSection2": "hi, my name's Apolo. This is my protfolio, I'm web developer and I can HTML, CSS and a little bit of JS.",
     "titleSection_2": "I'm taking a React JSX course. I've done some projects in HTML, CSS, and JavaScript, and only one in React JSX. This project is being developed with React JSX",
+    "titleSection3": "I'm a Front-End developer in training with knowledge in HTML, CSS, JavaScript and React.",
+    "titleSection_4": "Currently, I'm looking for my first opportunity as a young Apprentice in the Information Technology area, where I can apply my knowledge in web development and continue to evolve professionally.",
     "titleSection1": "Hi, click here for see my projects.",
     "seeProjects": "See projects",
     "projects": "My projects",
@@ -36,5 +38,26 @@
     "animation": "Animation",
 
     "stopAnimation": "Stop animation",
-    "startAnimation": "Start animation"
+    "startAnimation": "Start animation",
+
+    "contactTitle": "Hire as Apprentice",
+
+    "technologies": "Technologies I Work With",
+
+    "contribute": "I can contribute with",
+
+    "skills": "Skills",
+
+    "pSkills1": "Creating reusable components in React",
+    "pSkills2": "Manipulating state with useState",
+    "pSkills3": "Form validation",
+    "pSkills4": "Responsiveness for different devices",
+    "pSkills5": "Organization and structuring of components",
+
+    "pContribute1": "Web page development",
+    "pContribute2": "Creating interactive forms",
+    "pContribute3": "Maintaining existing interfaces",
+    "pContribute4": "Fixing errors in applications",
+
+    "profile": "Profile"
 }

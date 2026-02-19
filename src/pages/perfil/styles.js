@@ -11,7 +11,7 @@ export const DivPerfil = styled.div`
         transform: translateY(-120px);
         left: -3em;
         width: 300px;
-        pointer-events: initial;
+        pointer-events: none;
         opacity: 0;
         transition: all .3s;
         box-shadow: ${props => props.theme.shadow};
@@ -19,7 +19,8 @@ export const DivPerfil = styled.div`
 
     .perfil.ativo {
         opacity: 1;
-        transform: translateY(-80px);
+        pointer-events: all;
+        transform: translateY(-150px);
     }
 
     @media screen and (width >= 700px) {

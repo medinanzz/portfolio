@@ -10,6 +10,8 @@ export function Section2() {
                 <DivAbout className="aboutMe-div">
                     <p>{t('titleSection2')}</p>
                     <p>{t('titleSection_2')}</p>
+                    <p>{t('titleSection3')}</p>
+                    <p>{t('titleSection_4')}</p>
                 </DivAbout>
             </SectionAllStyle>
         </>

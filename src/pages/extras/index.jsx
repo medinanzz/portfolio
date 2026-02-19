@@ -1,21 +1,42 @@
-import styled from "styled-components";
-import { AnimationPage } from "./animation";
-import { SchoolTestPage } from "./schoolTest";
-
-export const Container = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    grid-column: 2 / -1;
-    min-height: 100dvh;
-    flex-direction: column;
-`;
+import { useTranslation } from "react-i18next";
+import { ContainerExtras, Hr, SectionExtras, TechnologiesDiv } from "./styles";
 
 export function ExtraPage() {
-    return (
-        <Container>
-            <AnimationPage />
-            <SchoolTestPage />
-        </Container>
-    )
+  const { t } = useTranslation();
+  return (
+    <>
+      <SectionExtras>
+        <TechnologiesDiv>
+          <h1>{t("technologies")}</h1>
+          <p>HTML | CSS | JavaScript | React | Styled-Components | Git</p>
+        </TechnologiesDiv>
+
+
+        <Hr />
+        
+        <ContainerExtras>
+          <h2>{t("skills")}</h2>
+          <ul>
+            <li>{t("pSkills1")}</li>
+            <li>{t("pSkills2")}</li>
+            <li>{t("pSkills3")}</li>
+            <li>{t("pSkills4")}</li>
+            <li>{t("pSkills5")}</li>
+          </ul>
+        </ContainerExtras>
+
+        <Hr />
+
+        <ContainerExtras>
+          <h2>{t("contribute")}</h2>
+          <ul>
+            <li>{t("pContribute1")}</li>
+            <li>{t("pContribute2")}</li>
+            <li>{t("pContribute3")}</li>
+            <li>{t("pContribute4")}</li>
+          </ul>
+        </ContainerExtras>
+      </SectionExtras>
+    </>
+  );
 }

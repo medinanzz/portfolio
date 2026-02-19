@@ -71,14 +71,14 @@ export function NavBarPage({ open, onClose }) {
           </button>
         </li>
         <li>
-          <button
+        <a target="_blank" href="https://wa.me/555181637935?text=Olá,%20tenho%20interesse%20em%20te%20contratar%20como%20Jovem%20Aprendiz" rel="noopener noreferrer"
             onClick={() => {
               onClose();
               contactSection();
             }}
           >
-            {t("contact")}
-          </button>
+            {t("contactTitle")}
+          </a>
         </li>
       </UlContainer>
       <ul style={{ listStyle: "none" }}>
@@ -96,7 +96,7 @@ export function NavBarPage({ open, onClose }) {
           </StyledLink>
         </li>
         <li>
-          <BtnPerfil onClick={() => setSeePerfil(!seePerfil)}>Perfil</BtnPerfil>
+          <BtnPerfil onClick={() => setSeePerfil(!seePerfil)}>{t("profile")}</BtnPerfil>
         </li>
 
         <li>

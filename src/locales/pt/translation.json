@@ -4,6 +4,8 @@
     "contact": "Contatos",
     "titleSection2": "Olá, sou o Apolo. Este é portfólio, eu sei um pouco de HTML, CSS e um pouco de JavaScript.",
     "titleSection_2": "Eu estou cursando React JSX. Eu fiz alguns projetos em HTML, CSS  e JavaScript, e apenas um em React JSX. Este projeto está sendo desenvolvido com React JSX",
+    "titleSection3": "Sou desenvolvedor Front-End em formação com conhecimento em HTML, CSS, JavaScript e React.",
+    "titleSection_4": "Atualmente estou buscando minha primeira oportunidade como jovem Aprendiz na área de Tecnologia da Informação, onde possa aplicar meus conhecimentos em desenvolvimento web e continuar evoluindo profissionalmente.",
     "titleSection1": "Olá, clique aqui para ver meus projetos.",
     "seeProjects": "Ver projetos",
     "projects": "Meus projetos",
@@ -36,5 +38,26 @@
     "animation": "Animação",
 
     "stopAnimation": "Parar animação",
-    "startAnimation": "Iniciar animação"
+    "startAnimation": "Iniciar animação",
+
+    "contactTitle": "Contratar como Aprendiz",
+
+    "technologies": "Tecnologias que utilizo",
+
+    "contribute": "Posso contribuir com",
+
+    "skills": "Habilidades",
+
+    "pSkills1": "Criação de componentes reutilizáveis em React",
+    "pSkills2": "Manipulação de estado com useState",
+    "pSkills3": "Validação de formulários",
+    "pSkills4": "Responsividade para diferentes dispositivos",
+    "pSkills5": "Organização e estruturação de componentes",
+
+    "pContribute1": "Desenvolvimento de páginas web",
+    "pContribute2": "Criação de formulários interativos",
+    "pContribute3": "Manutenção de interfaces existentes",
+    "pContribute4": "Correção de erros em aplicações",
+
+    "profile": "Perfil"
 }
