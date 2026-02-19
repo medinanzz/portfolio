@@ -38,7 +38,7 @@ export const GlboalStyle = createGlobalStyle`
                 display: flex;
                 justify-content: end;
                 /* z-index: 0; */
-                background-color: ${props => props.theme.backgroundHeader};
+                /* background-color: ${props => props.theme.backgroundHeader}; */
                 height: 80px;
                 /* position: ; */
             }

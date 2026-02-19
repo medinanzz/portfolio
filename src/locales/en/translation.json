@@ -31,5 +31,10 @@
 
     "perfilError": "No users registered.",
     "successRegister": "Success!",
-    "successRegister2": "Registration completed"
+    "successRegister2": "Registration completed",
+
+    "animation": "Animation",
+
+    "stopAnimation": "Stop animation",
+    "startAnimation": "Start animation"
 }

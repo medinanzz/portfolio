@@ -102,6 +102,16 @@ export function NavBarPage({ open, onClose }) {
         <li>
           <PerfilPage seePerfil={seePerfil} />
         </li>
+
+        <li>
+          <StyledLink onClick={() => {
+            onClose();
+          }}
+            to="/extras"
+          >
+            Extras
+          </StyledLink>
+        </li>
       </ul>
     </NavContainer>
   );

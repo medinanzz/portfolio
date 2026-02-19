@@ -31,5 +31,10 @@
 
     "perfilError": "Nenhum úsuario cadastrado",
     "successRegister": "Sucesso!",
-    "successRegister2": "Cadastro realizado"
+    "successRegister2": "Cadastro realizado",
+
+    "animation": "Animação",
+
+    "stopAnimation": "Parar animação",
+    "startAnimation": "Iniciar animação"
 }

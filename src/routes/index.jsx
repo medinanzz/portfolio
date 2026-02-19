@@ -3,6 +3,7 @@ import { LayoutApp } from "../layout";
 import { HomePage } from "../home";
 import { RegisterFakePage } from "../pages/register";
 import { useEffect } from "react";
+import { ExtraPage } from "../pages/extras";
 // import { PerfilPage } from "../pages/perfil";
 
 export function RouteApp() {
@@ -15,7 +16,8 @@ export function RouteApp() {
         <Route path="/" element={<LayoutApp />}>
           <Route index element={<HomePage />} />
           <Route path="registerFake" element={<RegisterFakePage />} />
-          {/* <Route path="perfilUser" element={<PerfilPage />}/> */}
+          <Route path="extras" element={<ExtraPage />} />
+          {/* <Route path="perfil" element={<PerfilPage />} /> */}
         </Route>
       </Routes>
     </>
