@@ -80,3 +80,29 @@ export const ButtonGlobalStyle = styled.button`
       scale: 1.1;
     }
 `;
+
+export const BtnTheme = styled.button`
+  width: 130px;
+  height: 50px;
+  /* aspect-ratio: 1 / 1; */
+  background: ${props => props.theme.buttonThemeBackground};
+  border-radius: 5em;
+  cursor: pointer;
+  border: none;
+  position: relative;
+
+  &::before {
+    content: '';
+    background: ${props => props.theme.buttonThemeBackgroundBefore};
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: all .3s;
+    position: absolute;
+    top: 50%;
+    left: 1em;
+    transform: translateY(-50%);
+  }
+
+  &.dark::before { left: 6em; }
+`;
