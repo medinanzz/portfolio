@@ -6,6 +6,7 @@ import { FooterPage } from "./components/footer";
 import { ThemeProvider } from "styled-components";
 import { darkTheme, lightTheme } from "./theme/theme";
 import { GlboalStyle } from "./style/resetStyle";
+import { ButtonTheme } from "./containers/buttonTheme";
 
 export function LayoutApp() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -14,8 +15,9 @@ export function LayoutApp() {
   return (
     <ThemeProvider theme={theme ? darkTheme : lightTheme}>
       <GlboalStyle />
-      <HeaderPage setTheme={setTheme} theme={theme} onOpenMenu={() => setMenuOpen(true)} />
+      <HeaderPage onOpenMenu={() => setMenuOpen(true)} />
       <NavBarPage open={menuOpen} onClose={() => setMenuOpen(false)} />
+      <ButtonTheme setTheme={setTheme} theme={theme} />
       <Outlet />
       <FooterPage />
     </ThemeProvider>

@@ -1,5 +1,5 @@
 import { FiMenu, FiMoon, FiSun } from "react-icons/fi";
-import { BtnOpenMenu, BtnTheme, ButtonGlobalStyle, DivHeader, DivTranslation } from "./styles";
+import { BtnOpenMenu, ButtonGlobalStyle, DivHeader, DivTranslation } from "./styles";
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 
@@ -10,7 +10,7 @@ export const DivThemeMenu = styled.div`
   align-items: center;
 `;
 
-export function HeaderPage({ onOpenMenu, theme, setTheme }) {
+export function HeaderPage({ onOpenMenu }) {
   const { i18n } = useTranslation();
 
   return (
@@ -29,7 +29,6 @@ export function HeaderPage({ onOpenMenu, theme, setTheme }) {
           </ButtonGlobalStyle>
         </DivTranslation>
         <DivThemeMenu>
-          <BtnTheme onClick={() => setTheme(!theme)} className={theme ? 'dark' : 'btnTheme'}></BtnTheme>
           <BtnOpenMenu onClick={onOpenMenu}>
             <FiMenu size={20} />
           </BtnOpenMenu>
