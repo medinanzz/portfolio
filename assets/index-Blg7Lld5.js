@@ -55,7 +55,7 @@ Please change the parent <Route path="${O}"> to <Route path="${O==="/"?"*":`${O}
             header {
                 position: relative;
                 width: 100%;
-                box-shadow: ${l=>l.theme.shadow};
+                /* box-shadow: ${l=>l.theme.shadow}; */
             }
             main {
                 grid-column: 2 / -1;
@@ -419,11 +419,15 @@ Please change the parent <Route path="${O}"> to <Route path="${O==="/"?"*":`${O}
     transform: scale(1);
     opacity: 1;
   }
+
   &.darkTheme .sun {
     transform: scale(0);
     opacity: 0;
   }
   
+  @media screen and (width >= 700px) {
+    top: 6.5em;
+  }
 `,fw=Ge(o0)`
     font-size: 30px;
     color: white;
