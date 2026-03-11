@@ -46,7 +46,7 @@ export const GlboalStyle = createGlobalStyle`
             header {
                 position: relative;
                 width: 100%;
-                box-shadow: ${props => props.theme.shadow};
+                /* box-shadow: ${props => props.theme.shadow}; */
             }
             main {
                 grid-column: 2 / -1;

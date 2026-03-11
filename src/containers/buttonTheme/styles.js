@@ -31,11 +31,15 @@ export const BtnTheme = styled.button`
     transform: scale(1);
     opacity: 1;
   }
+
   &.darkTheme .sun {
     transform: scale(0);
     opacity: 0;
   }
   
+  @media screen and (width >= 700px) {
+    top: 6.5em;
+  }
 `;
 
 export const IconSun = styled(FiSun)`
