@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next"
 import { Divprojectsbtn, SectionAllStyle } from "./styled";
+import { FiLayout, FiLoader, FiUpload } from "react-icons/fi";
 export function Section1() {
     const {t} = useTranslation();
      const projectsSection = () => {
@@ -16,7 +17,6 @@ export function Section1() {
                 </h1>
                 <Divprojectsbtn>
                     <button onClick={() => {projectsSection();}} className="a a-projects">{t('seeProjects')}</button>
-                    <span className="shadow shadowBottom shadowBtn"></span>
                 </Divprojectsbtn>
             </SectionAllStyle>
         </>

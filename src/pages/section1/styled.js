@@ -32,25 +32,25 @@ export const Divprojectsbtn = styled.div`
     color: #fff;
     transition: all 0.1s;
     border-radius: 0.5em;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
   }
 
-  .shadowBottom {
-    width: 40px;
-    height: 20px;
-    background-color: #41414167;
-    border-radius: 50%;
-    margin-top: 10px;
-    display: block;
-    transition: all 0.1s ease;
-    transform: scaleX(1.5);
+  .a::before {
+    content: '';
+    background-color: #9D00FF;
+    width: 220px;
+    left: -220px;
+    height: 100%;
+    top: 0;
+    z-index: -1;
+    position: absolute;
+    transition: all .6s;
+    border-radius: 0 1.5em 1.5em 0;
   }
-  
-  .a:active {
-    transform: translateY(3px);
-  }
-  
-  .a:active ~ .shadowBottom {
-    background-color: #414141c9;
-    transform: scale(.95);
+
+  .a:hover::before {
+    left: 0;
   }
 `;
