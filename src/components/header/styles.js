@@ -10,7 +10,7 @@ export const DivHeader = styled.div`
   top: 0;
   background-color: ${props => props.theme.backgroundHeader};
   backdrop-filter: blur(10px);
-  z-index: 1;
+  z-index: 3;
   width: 100%;
   color: ${props => props.theme.text};
 

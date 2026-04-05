@@ -5,7 +5,6 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 
-
 export function RegisterFakePage() {
   const [passwordUser, setPassword] = useState("");
   const [confirmPasswordUser, setConfirmPassword] = useState("");
@@ -20,7 +19,6 @@ export function RegisterFakePage() {
     password: false,
     confirm: false,
   });
-
   // const viewPasswordImg =
   //   "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjBweCIgdmlld0JveD0iMCAtOTYwIDk2MCA5NjAiIHdpZHRoPSIyMHB4IiBmaWxsPSIjRkZGRkZGIj48cGF0aCBkPSJNNTk5LTM2MXE0OS00OSA0OS0xMTl0LTQ5LTExOXEtNDktNDktMTE5LTQ5dC0xMTkgNDlxLTQ5IDQ5LTQ5IDExOXQ0OSAxMTlxNDkgNDkgMTE5IDQ5dDExOS00OVptLTE4Ny01MXEtMjgtMjgtMjgtNjh0MjgtNjhxMjgtMjggNjgtMjh0NjggMjhxMjggMjggMjggNjh0LTI4IDY4cS0yOCAyOC02OCAyOHQtNjgtMjhaTTIyMC0yNzAuNVExMDMtMzQ5IDQ4LTQ4MHE1NS0xMzEgMTcyLTIwOS41VDQ4MC03NjhxMTQzIDAgMjYwIDc4LjVUOTEyLTQ4MHEtNTUgMTMxLTE3MiAyMDkuNVQ0ODAtMTkycS0xNDMgMC0yNjAtNzguNVpNNDgwLTQ4MFptMjA3IDE1OHE5NS01OCAxNDYtMTU4LTUxLTEwMC0xNDYtMTU4dC0yMDctNThxLTExMiAwLTIwNyA1OFQxMjctNDgwcTUxIDEwMCAxNDYgMTU4dDIwNyA1OHExMTIgMCAyMDctNThaIi8+PC9zdmc+";
   // const hidePasswordImg =
@@ -36,38 +34,48 @@ export function RegisterFakePage() {
     const newErrors = {};
 
     if (!userName.trim()) {
-      newErrors.userName = 'errorName';
+      newErrors.userName = "errorName";
     } else if (userName.length <= 3) {
-      newErrors.userName = 'errorName2';
+      newErrors.userName = "errorName2";
     }
-    
+
     if (!emailUser.trim()) {
-      newErrors.emailUser = 'errorEmail';
+      newErrors.emailUser = "errorEmail";
     }
 
     if (passwordUser && passwordUser.length < 6) {
       newErrors.passwordUser = "Mínimo 6 caracteres";
     } else if (!passwordUser.trim()) {
-      newErrors.passwordUser = 'errorPassword';
+      newErrors.passwordUser = "errorPassword";
     }
 
     if (!confirmPasswordUser.trim()) {
-      newErrors.confirmPasswordUser = 'errorConfirm';
+      newErrors.confirmPasswordUser = "errorConfirm";
     }
 
     if (Number(ageUser) <= 5) {
-      newErrors.ageUser = 'errorAge';
+      newErrors.ageUser = "errorAge";
     }
 
     if (confirmPasswordUser && confirmPasswordUser !== passwordUser) {
-      newErrors.confirmPasswordUser = 'errorConfirm';
+      newErrors.confirmPasswordUser = "errorConfirm";
+    }
+
+    if (!emailUser.trim()) {
+      newErrors.emailUser = "O e-mail não pode estar vazio";
+    }
+
+    // Uma regex simples para validar o formato básico de e-mail
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(emailUser)) {
+      newErrors.emailUser = "Formato de e-mail inválido";
     }
 
     setErrors(newErrors);
     if (Object.keys(newErrors).length > 0) {
       return;
     }
-    
+
     sessionStorage.setItem(
       "user",
       JSON.stringify({
@@ -75,16 +83,16 @@ export function RegisterFakePage() {
         emailUser,
         ageUser,
         passwordUser,
-      })
+      }),
     );
 
     sessionStorage.setItem("registered", "true");
 
-    swal(t('successRegister'), t('successRegister2'), "success");
+    swal(t("successRegister"), t("successRegister2"), "success");
     setIsRegistered(true);
     navigate("/");
   }
-  
+
   function togglePassword(field) {
     setShowPassword((prev) => ({
       ...prev,
@@ -127,7 +135,6 @@ export function RegisterFakePage() {
           <input
             type="email"
             placeholder=" "
-            autoComplete="new-password"
             value={emailUser}
             onChange={(e) => setEmailUser(e.target.value)}
             className={errors.emailUser ? "error" : ""}
@@ -152,9 +159,7 @@ export function RegisterFakePage() {
             className={!passwordUser ? "disabledBtn" : ""}
             disabled={!passwordUser}
           >
-            <span
-              className="icon"
-            >
+            <span className="icon">
               {showPassword.password ? <FiEyeOff /> : <FiEye />}
             </span>
           </button>
@@ -177,9 +182,7 @@ export function RegisterFakePage() {
             className={!passwordUser ? "disabledBtn" : ""}
             disabled={!passwordUser}
           >
-            <span
-              className="icon"
-            >
+            <span className="icon">
               {showPassword.confirm ? <FiEyeOff /> : <FiEye />}
             </span>
           </button>
