@@ -68,6 +68,7 @@ export const ButtonGlobalStyle = styled.button`
     align-items: center;
     height: 40px;
     border: 0;
+    cursor: pointer;
     background-color: transparent;
     border-radius: 50%;
     color: white;

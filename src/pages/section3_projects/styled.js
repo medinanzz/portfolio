@@ -1,17 +1,16 @@
 import styled from "styled-components";
 
 export const DivProjects = styled.div`
-  /* min-height: 100%; */
   width: 100%;
 
   ul {
     list-style: none;
-    width: 100%;
     position: relative;
-    margin-top: 1em;
+    margin: 1em auto;
     display: grid;
     transition: all .3s;
     gap: 0.5em;
+    width: fit-content;
   }
 
   ul li {
@@ -32,21 +31,17 @@ export const DivProjects = styled.div`
     align-items: center;
     height: 7dvh;
     position: relative;
-  }
 
-  ul.hover-btn {
-
-    a.link-hover {
-        /* scale: 1.1; */
-        background-color: #2a2a2a;
-        backdrop-filter: blur(5px);
-        opacity: 1;
-        box-shadow: 0 10px 30px rgba(255, 255, 255, 0.23);
-        transform: translateY(-6px) scale(1.05);
+    &:hover {
+      transform: translateY(-10px) scale(1.1);
+      box-shadow: ${props => props.theme.shadowLinkProjects};
     }
   }
 
-  ul.hover-btn .a-projects {
-    opacity: 0.6;
+  .ul:hover { gap: .4em; }
+
+  .ul:hover .a-projects:not(:hover) {
+    opacity: .6;
+    filter: blur(2px);
   }
 `;

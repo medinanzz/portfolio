@@ -1,11 +1,16 @@
+// import { useEffect } from "react";
 import { DivPerfil } from "./styles";
 import { useTranslation } from "react-i18next";
+// import Swal from "sweetalert2";
 
 export function PerfilPage({ seePerfil }) {
     const userString = sessionStorage.getItem("user");
   const user = userString ? JSON.parse(userString) : null;
   const { t } = useTranslation();
 
+//   useEffect(() => {
+//     Swal.fire
+//   })
 
   if (!user) {
     return <DivPerfil>

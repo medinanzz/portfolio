@@ -1,11 +1,9 @@
 import { useTranslation } from "react-i18next";
 import { SectionAllStyle } from "../section1/styled";
 import { DivProjects } from "./styled";
-import { useState } from "react";
 
 export function Section3() {
   const { t } = useTranslation();
-  const [hovered, setHovered] = useState(false);
   const projects = [
     { name: t('academy'), link: "https://medinanzz.github.io/templo_do_reverendo/" },
     { name: t('origami'), link: "https://medinanzz.github.io/origames/" },
@@ -18,15 +16,13 @@ export function Section3() {
       <SectionAllStyle id="projects">
         <h1>{t("projects")}</h1>
         <DivProjects>
-          <ul className={hovered !== null ? "hover-btn" : ""}>
+          <ul className='ul'>
             {projects.map((item, index) => (
             <li key={index}>
               <a
               target="_blank"
                 href={item.link}
-                className={`a a-projects ${hovered === index ? "link-hover" : ""}`}
-                onMouseEnter={() => setHovered(index)}
-                onMouseLeave={() => setHovered(null)}
+                className={`a a-projects`}
               >
                 {item.name}
               </a>
