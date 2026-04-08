@@ -59,6 +59,24 @@ export const DivTranslation = styled.div`
   display: flex;
   flex-direction: row;
   gap: 1em;
+
+  & button {
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+  
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background-color: #6200ea;
+      clip-path: circle(0% at 50% 50%);
+      transition: .3s;
+    }
+    &:hover { color: #fff; box-shadow: none; }
+    &:hover::before { clip-path: circle(100% at 50% 50%); }
+  }
 `;
 
 export const ButtonGlobalStyle = styled.button`
