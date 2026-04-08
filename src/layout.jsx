@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import { HeaderPage } from "./components/header";
 import { NavBarPage } from "./components/navBar";
@@ -10,14 +10,24 @@ import { ButtonTheme } from "./containers/buttonTheme";
 
 export function LayoutApp() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [theme, setTheme] = useState(false);
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem('theme') || 'light'
+  });
+  useEffect(() => {
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  // 3. Função para alternar (caso queira passar para o ButtonTheme)
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
+  };
 
   return (
-    <ThemeProvider theme={theme ? darkTheme : lightTheme}>
+    <ThemeProvider theme={theme === 'dark' ? darkTheme : lightTheme}>
       <GlboalStyle />
       <HeaderPage onOpenMenu={() => setMenuOpen(true)} />
       <NavBarPage open={menuOpen} onClose={() => setMenuOpen(false)} />
-      <ButtonTheme setTheme={setTheme} theme={theme} />
+      <ButtonTheme setTheme={setTheme} theme={theme} toggleTheme={toggleTheme} />
       <Outlet />
       <FooterPage />
     </ThemeProvider>
