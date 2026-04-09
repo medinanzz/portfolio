@@ -11,23 +11,27 @@ import { ButtonTheme } from "./containers/buttonTheme";
 export function LayoutApp() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [theme, setTheme] = useState(() => {
-    return localStorage.getItem('theme') || 'light'
+    return localStorage.getItem("theme") || "light";
   });
   useEffect(() => {
-    localStorage.setItem('theme', theme);
+    localStorage.setItem("theme", theme);
   }, [theme]);
 
   // 3. Função para alternar (caso queira passar para o ButtonTheme)
   const toggleTheme = () => {
-    setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
+    setTheme((prev) => (prev === "light" ? "dark" : "light"));
   };
 
   return (
-    <ThemeProvider theme={theme === 'dark' ? darkTheme : lightTheme}>
+    <ThemeProvider theme={theme === "dark" ? darkTheme : lightTheme}>
       <GlboalStyle />
       <HeaderPage onOpenMenu={() => setMenuOpen(true)} />
       <NavBarPage open={menuOpen} onClose={() => setMenuOpen(false)} />
-      <ButtonTheme setTheme={setTheme} theme={theme} toggleTheme={toggleTheme} />
+      <ButtonTheme
+        setTheme={setTheme}
+        theme={theme}
+        toggleTheme={toggleTheme}
+      />
       <Outlet />
       <FooterPage />
     </ThemeProvider>

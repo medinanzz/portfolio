@@ -11,6 +11,12 @@ export const GlboalStyle = createGlobalStyle`
     html, body {
         scroll-behavior: smooth;
     }
+
+    body {
+        height: 100dvh;;
+        overflow-y: auto;
+        scroll-snap-type: y mandatory;
+    }
     #root {
         min-height: 100dvh;
         background-color: ${props => props.theme.background};
@@ -51,10 +57,11 @@ export const GlboalStyle = createGlobalStyle`
             main {
                 grid-column: 2 / -1;
                 flex: 1;
-                min-height: 100dvh;
                 flex-direction: column;
                 display: flex;
                 top: 0;
+                align-items: center;
+                min-height: 100dvh;
                 justify-content: center;
                 grid-row: 2 / -1;
             }

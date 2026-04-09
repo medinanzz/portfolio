@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { BtnPerfil, NavContainer, StyledLink, UlContainer } from "./styles";
 import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FiX } from "react-icons/fi";
 import Swal from "sweetalert2";
 import withReactContent from 'sweetalert2-react-content';
@@ -29,7 +29,7 @@ export function NavBarPage({ open, onClose }) {
   useEffect(() => {
     const checkRegistered = () => {
       const registered = sessionStorage.getItem("registered");
-      setIsRegistered(registered === "true");
+      setIsRegistered(registered === 'true');
     };
 
     checkRegistered();
@@ -47,14 +47,8 @@ export function NavBarPage({ open, onClose }) {
       section.scrollIntoView({ behavior: "smooth" });
     }
   };
-  const contactSection = () => {
-    const section = document.getElementById("contact");
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
-  function SeePerfil() {
+  
+  const SeePerfil = () => {
     if (!user) {
       MySwal.fire({
         title: `${t('perfilError')}`,
@@ -71,6 +65,18 @@ export function NavBarPage({ open, onClose }) {
       });
     }
   }
+
+  const btnsNav = [
+    { text: 'Home', click: () => {
+      onClose();
+      navigate('/');
+      setTimeout(() => homeSection(), 100)
+    } },
+    { text: t('about'), click: () => {
+      onClose();
+      aboutMe();
+    } },
+  ]
   return (
     <NavContainer className={open ? "open" : ""}>
       <button className="close-btn btn-img-menu" onClick={onClose}>
@@ -79,42 +85,14 @@ export function NavBarPage({ open, onClose }) {
       <h1 className="t1">
         <span className="t-span">&lt;/AM&gt;</span>
       </h1>
-      <UlContainer>
+      <UlContainer style={{ paddingTop: '1em', }}>
+        {btnsNav.map((btns, i) => (
+          <li key={i}>
+            <button onClick={btns.click}>{btns.text}</button>
+          </li>
+        ))}
         <li>
-          <button
-            onClick={() => {
-              onClose();
-              navigate("/");
-              setTimeout(() => {
-                homeSection();
-              }, 100);
-            }}
-          >
-            {t("home")}
-          </button>
-        </li>
-        <li>
-          <button
-            onClick={() => {
-              onClose();
-              aboutMe();
-            }}
-          >
-            {t("about")}
-          </button>
-        </li>
-        <li>
-          <a
-            target="_blank"
-            href="https://wa.me/555181637935?text=Olá,%20tenho%20interesse%20em%20te%20contratar%20como%20Jovem%20Aprendiz"
-            rel="noopener noreferrer"
-            onClick={() => {
-              onClose();
-              contactSection();
-            }}
-          >
-            {t("contactTitle")}
-          </a>
+          <a onClick={onClose} href="https://wa.me/555181637935?text=Olá,%20tenho%20interesse%20em%20te%20contratar%20como%20Jovem%20Aprendiz">{t("contactTitle")}</a>
         </li>
       </UlContainer>
       <ul style={{ listStyle: "none" }}>
@@ -123,6 +101,7 @@ export function NavBarPage({ open, onClose }) {
             onClick={() => {
               onClose();
             }}
+            title={isRegistered ? 'Já registrado' : ''}
             to="/registerFake"
             style={{
               pointerEvents: isRegistered ? "none" : "auto",
@@ -137,10 +116,6 @@ export function NavBarPage({ open, onClose }) {
             {t("profile")}
           </BtnPerfil>
         </li>
-
-        {/* <li>
-          <PerfilPage seePerfil={seePerfil} />
-        </li> */}
 
         <li>
           <StyledLink

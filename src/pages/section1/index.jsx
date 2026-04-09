@@ -12,12 +12,14 @@ export function Section1() {
     return(
         <>
             <SectionAllStyle id="home">
-                <h1 className="t">
-                    <span className="t-span">{t('titleSection1')}</span>
-                </h1>
-                <Divprojectsbtn>
-                    <button onClick={() => {projectsSection();}} className="a a-projects">{t('seeProjects')}</button>
-                </Divprojectsbtn>
+                <div className="card">
+                    <h1 className="t">
+                        <span className="t-span">{t('titleSection1')}</span>
+                    </h1>
+                    <Divprojectsbtn>
+                        <button onClick={() => {projectsSection();}} className="a a-projects">{t('seeProjects')}</button>
+                    </Divprojectsbtn>
+                </div>
             </SectionAllStyle>
         </>
     )

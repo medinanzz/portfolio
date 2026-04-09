@@ -5,7 +5,34 @@ export const SectionAllStyle = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
+  scroll-snap-align: start;
   flex-direction: column;
+  
+  .card {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    animation: reveal linear both;
+    animation-timeline: view();
+    -webkit-animation-range: entry 60% cover 50%;
+    animation-range: entry 60% cover 50%;
+    
+    @keyframes reveal {
+      from {
+        opacity: 0;
+        transform: scale(.7);
+      }
+  
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  }
+
 
   h1 {
     text-align: center;

@@ -6,7 +6,7 @@ export const NavContainer = styled.nav`
   right: -260px;
   width: 260px;
   bottom: 0;
-  background: ${props => props.theme.backgroundMenu};
+  background: ${props => props.theme.backgroundNav};
   backdrop-filter: blur(10px);
   padding: 2rem 1rem;
   transition: 0.3s ease;
@@ -61,7 +61,7 @@ export const NavContainer = styled.nav`
     flex-direction: column;
   }
 
-  @media screen and (width > 700px) {
+  @media screen and (width >= 700px) {
     position: relative;
     left: 0;
     z-index: 0;
@@ -94,6 +94,7 @@ export const UlContainer = styled.ul`
     font-size: 1.2rem;
     background-color: transparent;
     width: 90%;
+    position: relative;
     border: 0;
     height: 7dvh;
     display: flex;
@@ -102,9 +103,23 @@ export const UlContainer = styled.ul`
     transition: all 0.3s;
     align-items: center;
 
-    &:hover {
-      /* scale: 1.1; */
-      box-shadow: ${props => props.theme.shadow};
+    &::before {
+      content: '';
+      background-color: ${props => props.theme.lineBeforeLinks};
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0%;
+      height: 2px;
+      position: absolute;
+    }
+
+    &:hover::before {
+      width: 100%;
+    }
+
+    @media screen and (width >= 610px) {
+      &::before {transition: .3s;}
     }
   }
 
@@ -126,9 +141,26 @@ export const StyledLink = styled(Link)`
     transition: all 0.3s;
     align-items: center;
     border-radius: .5em;
+    position: relative;
 
-    &:hover {
-      box-shadow: ${props => props.theme.shadow};
+    &::before {
+      background-color: ${props => props.theme.lineBeforeLinks};
+      height: 2px;
+      width: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      /* transition: .3s; */
+      position: absolute;
+      bottom: 0;
+      content: '';
+    }
+
+    &:hover::before {
+      width: 100%;
+    }
+
+    @media screen and (width >= 610px) {
+      &::before {transition: .3s;}
     }
 `;
 
@@ -142,11 +174,25 @@ export const BtnPerfil = styled.button`
     height: 7dvh;
     display: flex;
     padding-left: 1em;
+    position: relative;
     transition: all 0.3s;
     border-radius: 0.5em;
     align-items: center;
 
-    &:hover {
-      box-shadow: ${props => props.theme.shadow};
+    &::before {
+      content: '';
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: ${props => props.theme.lineBeforeLinks};
+      width: 0;
+      height: 2px;
+      position: absolute;
+    }
+
+    &:hover::before {width: 100%;}
+
+    @media screen and (width >= 610px) {
+      &::before {transition: .3s;}
     }
 `;

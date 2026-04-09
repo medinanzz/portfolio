@@ -14,22 +14,24 @@ export function Section3() {
   return (
     <>
       <SectionAllStyle id="projects">
-        <h1>{t("projects")}</h1>
-        <DivProjects>
-          <ul className='ul'>
-            {projects.map((item, index) => (
-            <li key={index}>
-              <a
-              target="_blank"
-                href={item.link}
-                className={`a a-projects`}
-              >
-                {item.name}
-              </a>
-            </li>
-          ))}
-          </ul>
-        </DivProjects>
+        <div className="card">
+          <h1>{t("projects")}</h1>
+          <DivProjects>
+            <ul className='ul'>
+              {projects.map((item, index) => (
+              <li key={index}>
+                <a
+                target="_blank"
+                  href={item.link}
+                  className={`a a-projects`}
+                >
+                  {item.name}
+                </a>
+              </li>
+            ))}
+            </ul>
+          </DivProjects>
+        </div>
       </SectionAllStyle>
     </>
   );

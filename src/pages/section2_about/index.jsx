@@ -6,13 +6,15 @@ export function Section2() {
     return(
         <>
             <SectionAllStyle id="aboutMe">
-                <h1>{t('about')}</h1>
-                <DivAbout className="aboutMe-div">
-                    <p>{t('titleSection2')}</p>
-                    <p>{t('titleSection_2')}</p>
-                    <p>{t('titleSection3')}</p>
-                    <p>{t('titleSection_4')}</p>
-                </DivAbout>
+                <div className="card">
+                    <h1>{t('about')}</h1>
+                    <DivAbout className="aboutMe-div">
+                        <p>{t('titleSection2')}</p>
+                        <p>{t('titleSection_2')}</p>
+                        <p>{t('titleSection3')}</p>
+                        <p>{t('titleSection_4')}</p>
+                    </DivAbout>
+                </div>
             </SectionAllStyle>
         </>
     )

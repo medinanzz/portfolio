@@ -21,12 +21,14 @@ export function RegisterFakePage() {
     password: false,
     confirm: false,
   });
-  
+
+
   useEffect(() => {
     const registered = sessionStorage.getItem("registered");
     if (registered === "true") {
       navigate("/");
     }
+    
   }, [navigate]);
 
   function registerUser() {
@@ -89,9 +91,8 @@ export function RegisterFakePage() {
 
     Swal.fire({
       title: t('successRegister'),
-      text: t('successRegister2') + ' ' + t('registerAgain'),
+      text: `${t('registerAgain')}`,
       icon: 'success',
-      timer: 1000,
     })
 
     setIsRegistered(true);
@@ -104,8 +105,6 @@ export function RegisterFakePage() {
       [field]: !prev[field],
     }));
   }
-
-  console.log(showPassword);
 
   return (
     <RegisterFake className="registerFake">
