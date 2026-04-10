@@ -8,6 +8,8 @@ export const SectionAllStyle = styled.section`
   scroll-snap-align: start;
   flex-direction: column;
   
+  
+
   .card {
     height: 100%;
     display: flex;
@@ -19,7 +21,28 @@ export const SectionAllStyle = styled.section`
     animation-timeline: view();
     -webkit-animation-range: entry 60% cover 50%;
     animation-range: entry 60% cover 50%;
+
+    @media screen and (width >= 600px) {
+      animation-range: entry 50% cover 50%;
     
+      @keyframes reveal {
+        from {
+          opacity: 0;
+          transform: scale(0);
+        }
+    
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+    }
+
+    &.card-home:nth-of-type(1) {
+      animation: none;
+    }
+    
+
     @keyframes reveal {
       from {
         opacity: 0;

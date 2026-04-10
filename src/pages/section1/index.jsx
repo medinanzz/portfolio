@@ -12,7 +12,7 @@ export function Section1() {
     return(
         <>
             <SectionAllStyle id="home">
-                <div className="card">
+                <div className="card card-home">
                     <h1 className="t">
                         <span className="t-span">{t('titleSection1')}</span>
                     </h1>
