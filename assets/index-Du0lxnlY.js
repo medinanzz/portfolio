@@ -558,6 +558,8 @@ https://sweetalert2.github.io/#ajax-request`),dB(n),typeof n.title=="string"&&(n
   scroll-snap-align: start;
   flex-direction: column;
   
+  
+
   .card {
     height: 100%;
     display: flex;
@@ -569,7 +571,28 @@ https://sweetalert2.github.io/#ajax-request`),dB(n),typeof n.title=="string"&&(n
     animation-timeline: view();
     -webkit-animation-range: entry 60% cover 50%;
     animation-range: entry 60% cover 50%;
+
+    @media screen and (width >= 600px) {
+      animation-range: entry 50% cover 50%;
     
+      @keyframes reveal {
+        from {
+          opacity: 0;
+          transform: scale(0);
+        }
+    
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+    }
+
+    &.card-home:nth-of-type(1) {
+      animation: none;
+    }
+    
+
     @keyframes reveal {
       from {
         opacity: 0;
@@ -628,7 +651,7 @@ https://sweetalert2.github.io/#ajax-request`),dB(n),typeof n.title=="string"&&(n
   .a:hover::before {
     left: 0;
   }
-`;function jB(){const{t:n}=Ia(),l=()=>{const r=document.getElementById("contact");r&&r.scrollIntoView({behavior:"smooth"})};return x.jsx(x.Fragment,{children:x.jsx(ld,{id:"home",children:x.jsxs("div",{className:"card",children:[x.jsx("h1",{className:"t",children:x.jsx("span",{className:"t-span",children:n("titleSection1")})}),x.jsx(HB,{children:x.jsx("button",{onClick:()=>{l()},className:"a a-projects",children:n("seeProjects")})})]})})})}const RB=ke.div`
+`;function jB(){const{t:n}=Ia(),l=()=>{const r=document.getElementById("contact");r&&r.scrollIntoView({behavior:"smooth"})};return x.jsx(x.Fragment,{children:x.jsx(ld,{id:"home",children:x.jsxs("div",{className:"card card-home",children:[x.jsx("h1",{className:"t",children:x.jsx("span",{className:"t-span",children:n("titleSection1")})}),x.jsx(HB,{children:x.jsx("button",{onClick:()=>{l()},className:"a a-projects",children:n("seeProjects")})})]})})})}const RB=ke.div`
     display: flex;
     gap: .8em;
     align-items: center;
