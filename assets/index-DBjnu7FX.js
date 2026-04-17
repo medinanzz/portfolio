@@ -43,7 +43,7 @@ Please change the parent <Route path="${Q}"> to <Route path="${Q==="/"?"*":`${Q}
                 position: fixed;
                 top: 0;
                 z-index: 99;
-                width: 250px;
+                width: 300px;
                 box-shadow: ${n=>n.theme.shadowNav};
             }
             
@@ -75,8 +75,8 @@ Please change the parent <Route path="${Q}"> to <Route path="${Q==="/"?"*":`${Q}
             footer {
                 position: relative;
                 bottom: 0;
-                grid-column: 1 / -1;
-                margin-left: 250px;
+                grid-column: 2 / -1;
+                margin-left: 3em;
             }
         }
     }
@@ -546,8 +546,7 @@ https://sweetalert2.github.io/#ajax-request`),uB(n),typeof n.title=="string"&&(n
   align-items: center;
   scroll-snap-align: start;
   flex-direction: column;
-  
-  
+  width: 100%;
 
   .card {
     height: 100%;
@@ -560,6 +559,7 @@ https://sweetalert2.github.io/#ajax-request`),uB(n),typeof n.title=="string"&&(n
     animation-timeline: view();
     -webkit-animation-range: entry 60% cover 50%;
     animation-range: entry 60% cover 50%;
+    scroll-padding-top: 1em;
 
     @media screen and (width >= 600px) {
       animation-range: entry 50% cover 50%;
@@ -656,20 +656,25 @@ https://sweetalert2.github.io/#ajax-request`),uB(n),typeof n.title=="string"&&(n
     p:nth-of-type(1) {margin-top: 1em;}
 `;function MB(){const{t:n}=Ia();return x.jsx(x.Fragment,{children:x.jsx(ld,{id:"aboutMe",children:x.jsxs("div",{className:"card",children:[x.jsx("h1",{children:n("about")}),x.jsxs(RB,{className:"aboutMe-div",children:[x.jsx("p",{children:n("titleSection2")}),x.jsx("p",{children:n("titleSection_2")}),x.jsx("p",{children:n("titleSection3")}),x.jsx("p",{children:n("titleSection_4")})]})]})})})}const YB=Fe.div`
   width: 100%;
+  margin-top: 1em;
 
   ul {
     list-style: none;
     position: relative;
-    margin: 1em auto;
-    display: grid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
     transition: all .3s;
+    padding: 0 .2em;
     gap: 0.5em;
-    width: fit-content;
   }
 
   ul li {
     perspective: 1000px;
     display: flex;
+    width: 100%;
     justify-content: center;
   }
 
@@ -678,7 +683,8 @@ https://sweetalert2.github.io/#ajax-request`),uB(n),typeof n.title=="string"&&(n
     transition: all .3s;
     color: white;
     margin: auto;
-    width: 300px;
+    flex: 1;
+    max-width: 300px;
     border-radius: 0.5em;
     display: inline-flex;
     justify-content: center;
@@ -692,7 +698,7 @@ https://sweetalert2.github.io/#ajax-request`),uB(n),typeof n.title=="string"&&(n
     color: white;
 
     &:hover {
-      transform: translateY(-10px) scale(1.1) rotateX(25deg);
+      transform: translateY(-10px) scale(1.05) rotateX(25deg);
       box-shadow: ${n=>n.theme.shadowLinkProjects};
     }
 
@@ -703,7 +709,7 @@ https://sweetalert2.github.io/#ajax-request`),uB(n),typeof n.title=="string"&&(n
       z-index: -1;
       background-color: #6200ea;
       clip-path: circle(0% at 50% 100%);
-      transition: .6s;
+      transition: .45s;
     }
 
     &:hover::before {
@@ -893,4 +899,4 @@ https://sweetalert2.github.io/#ajax-request`),uB(n),typeof n.title=="string"&&(n
     /* @media screen and (width >= 700px) {
 
     } */
-`;function WB(){const{t:n}=Ia();return x.jsx(x.Fragment,{children:x.jsxs(FB,{children:[x.jsxs(kB,{children:[x.jsx("h1",{children:n("technologies")}),x.jsx("p",{children:"HTML | CSS | JavaScript | React | Styled-Components | Git"})]}),x.jsx(Ap,{}),x.jsxs(pp,{children:[x.jsx("h2",{children:n("skills")}),x.jsxs("ul",{children:[x.jsx("li",{children:n("pSkills1")}),x.jsx("li",{children:n("pSkills2")}),x.jsx("li",{children:n("pSkills3")}),x.jsx("li",{children:n("pSkills4")}),x.jsx("li",{children:n("pSkills5")})]})]}),x.jsx(Ap,{}),x.jsxs(pp,{children:[x.jsx("h2",{children:n("contribute")}),x.jsxs("ul",{children:[x.jsx("li",{children:n("pContribute1")}),x.jsx("li",{children:n("pContribute2")}),x.jsx("li",{children:n("pContribute3")}),x.jsx("li",{children:n("pContribute4")})]})]})]})})}function UB(){return L.useEffect(()=>{sessionStorage.clear()},[]),x.jsx(x.Fragment,{children:x.jsx(Q0,{children:x.jsxs($i,{path:"/",element:x.jsx(NB,{}),children:[x.jsx($i,{index:!0,element:x.jsx(GB,{})}),x.jsx($i,{path:"registerFake",element:x.jsx(QB,{})}),x.jsx($i,{path:"extras",element:x.jsx(WB,{})})]})})})}const PB="Home",JB="About Me",KB="Contact",qB="hi, my name's Apolo. This is my protfolio, I'm web developer and I can HTML, CSS and a little bit of JS.",IB="I'm taking a React JSX course. I've done some projects in HTML, CSS, and JavaScript, and only one in React JSX. This project is being developed with React JSX",_B="I'm a Front-End developer in training with knowledge in HTML, CSS, JavaScript and React.",$B="Currently, I'm looking for my first opportunity as a young Apprentice in the Information Technology area, where I can apply my knowledge in web development and continue to evolve professionally.",e7="Hi, click here for see my projects.",t7="See projects",n7="My projects",a7="Academy",l7="Origami",i7="Recipes",r7="Register",s7="User name",o7="Age",u7="Password",c7="Confirm password",f7="Phone number",d7="Already registered",h7="View password",g7="Hide password",m7="Name",A7="Very short name",p7="You must be at least 5 years old!",v7="Invalid email address",w7="The field must be filled in.",b7="Passwords don't match.",y7="Fill in the field",C7="No users registered.",S7="Success!",B7="Refresh the page to register again.",x7="Registration completed",z7="Animation",O7="Stop animation",D7="Start animation",E7="Hire as Apprentice",L7="Technologies I Work With",X7="I can contribute with",N7="Skills",H7="Creating reusable components in React",j7="Manipulating state with useState",R7="Form validation",M7="Responsiveness for different devices",Y7="Organization and structuring of components",T7="Web page development",V7="Creating interactive forms",G7="Maintaining existing interfaces",Z7="Fixing errors in applications",Q7="Profile",F7={home:PB,about:JB,contact:KB,titleSection2:qB,titleSection_2:IB,titleSection3:_B,titleSection_4:$B,titleSection1:e7,seeProjects:t7,projects:n7,academy:a7,origami:l7,recipes:i7,register:r7,userName:s7,age:o7,password:u7,confirmPassword:c7,phoneNumber:f7,alreadyRegistered:d7,viewPassword:h7,hidePassword:g7,name:m7,errorName:A7,errorAge:p7,errorEmail:v7,errorPassword:w7,errorConfirm:b7,errorName2:y7,perfilError:C7,successRegister:S7,registerAgain:B7,successRegister2:x7,animation:z7,stopAnimation:O7,startAnimation:D7,contactTitle:E7,technologies:L7,contribute:X7,skills:N7,pSkills1:H7,pSkills2:j7,pSkills3:R7,pSkills4:M7,pSkills5:Y7,pContribute1:T7,pContribute2:V7,pContribute3:G7,pContribute4:Z7,profile:Q7},k7="Home",W7="Sobre mim",U7="Contatos",P7="Olá, sou o Apolo. Este é portfólio, eu sei um pouco de HTML, CSS e um pouco de JavaScript.",J7="Eu estou cursando React JSX. Eu fiz alguns projetos em HTML, CSS  e JavaScript, e apenas um em React JSX. Este projeto está sendo desenvolvido com React JSX",K7="Sou desenvolvedor Front-End em formação com conhecimento em HTML, CSS, JavaScript e React.",q7="Atualmente estou buscando minha primeira oportunidade como jovem Aprendiz na área de Tecnologia da Informação, onde possa aplicar meus conhecimentos em desenvolvimento web e continuar evoluindo profissionalmente.",I7="Olá, clique aqui para ver meus projetos.",_7="Ver projetos",$7="Meus projetos",ex="Academia",tx="Origame",nx="Receitas",ax="Cadastro",lx="Nome do úsuario",ix="Idade",rx="Senha",sx="Confirmar senha",ox="Número de telefone",ux="Já cadastrado",cx="Ver senha",fx="Ocultar senha",dx="Nome",hx="Nome muito curto",gx="Você deve ter pelo menos 5 anos!",mx="Email inválido",Ax="O campo deve ser preenchido",px="Senhas não coincidem",vx="Preencha o campo",wx="Nenhum úsuario cadastrado",bx="Sucesso!",yx="Reinicie a página para cadastrar novamente",Cx="Animação",Sx="Parar animação",Bx="Iniciar animação",xx="Contratar como Aprendiz",zx="Tecnologias que utilizo",Ox="Posso contribuir com",Dx="Habilidades",Ex="Criação de componentes reutilizáveis em React",Lx="Manipulação de estado com useState",Xx="Validação de formulários",Nx="Responsividade para diferentes dispositivos",Hx="Organização e estruturação de componentes",jx="Desenvolvimento de páginas web",Rx="Criação de formulários interativos",Mx="Manutenção de interfaces existentes",Yx="Correção de erros em aplicações",Tx="Perfil",Vx={home:k7,about:W7,contact:U7,titleSection2:P7,titleSection_2:J7,titleSection3:K7,titleSection_4:q7,titleSection1:I7,seeProjects:_7,projects:$7,academy:ex,origami:tx,recipes:nx,register:ax,userName:lx,age:ix,password:rx,confirmPassword:sx,phoneNumber:ox,alreadyRegistered:ux,viewPassword:cx,hidePassword:fx,name:dx,errorName:hx,errorAge:gx,errorEmail:mx,errorPassword:Ax,errorConfirm:px,errorName2:vx,perfilError:wx,successRegister:bx,registerAgain:yx,animation:Cx,stopAnimation:Sx,startAnimation:Bx,contactTitle:xx,technologies:zx,contribute:Ox,skills:Dx,pSkills1:Ex,pSkills2:Lx,pSkills3:Xx,pSkills4:Nx,pSkills5:Hx,pContribute1:jx,pContribute2:Rx,pContribute3:Mx,pContribute4:Yx,profile:Tx};bt.use(mC).init({resources:{en:{translation:F7},pt:{translation:Vx}},lng:"pt",fallbackLng:"pt",interpolation:{escapeValue:!1}});vp.createRoot(document.getElementById("root")).render(x.jsx(L.StrictMode,{children:x.jsx(d1,{children:x.jsx(UB,{})})}));
+`;function WB(){const{t:n}=Ia();return x.jsx(x.Fragment,{children:x.jsxs(FB,{children:[x.jsxs(kB,{children:[x.jsx("h1",{children:n("technologies")}),x.jsx("p",{children:"HTML | CSS | JavaScript | React | Styled-Components | Git"})]}),x.jsx(Ap,{}),x.jsxs(pp,{children:[x.jsx("h2",{children:n("skills")}),x.jsxs("ul",{children:[x.jsx("li",{children:n("pSkills1")}),x.jsx("li",{children:n("pSkills2")}),x.jsx("li",{children:n("pSkills3")}),x.jsx("li",{children:n("pSkills4")}),x.jsx("li",{children:n("pSkills5")})]})]}),x.jsx(Ap,{}),x.jsxs(pp,{children:[x.jsx("h2",{children:n("contribute")}),x.jsxs("ul",{children:[x.jsx("li",{children:n("pContribute1")}),x.jsx("li",{children:n("pContribute2")}),x.jsx("li",{children:n("pContribute3")}),x.jsx("li",{children:n("pContribute4")})]})]})]})})}function UB(){return L.useEffect(()=>{sessionStorage.clear()},[]),x.jsx(x.Fragment,{children:x.jsx(Q0,{children:x.jsxs($i,{path:"/",element:x.jsx(NB,{}),children:[x.jsx($i,{index:!0,element:x.jsx(GB,{})}),x.jsx($i,{path:"registerFake",element:x.jsx(QB,{})}),x.jsx($i,{path:"extras",element:x.jsx(WB,{})})]})})})}const PB="Home",JB="About Me",KB="Contact",qB="hi, my name's Apolo. This is my protfolio, I'm web developer and I can HTML, CSS and a little bit of JS.",IB="I'm taking a React JSX course. I've done some projects in HTML, CSS, and JavaScript, and only one in React JSX. This project is being developed with React JSX",_B="I'm a Front-End developer in training with knowledge in HTML, CSS, JavaScript and React.",$B="Currently, I'm looking for my first opportunity as a young Apprentice in the Information Technology area, where I can apply my knowledge in web development and continue to evolve professionally.",ex="Hi, click here for see my projects.",tx="See projects",nx="My projects",ax="Academy",lx="Origami",ix="Recipes",rx="Register",sx="User name",ox="Age",ux="Password",cx="Confirm password",fx="Phone number",dx="Already registered",hx="View password",gx="Hide password",mx="Name",Ax="Very short name",px="You must be at least 5 years old!",vx="Invalid email address",wx="The field must be filled in.",bx="Passwords don't match.",yx="Fill in the field",Cx="No users registered.",Sx="Success!",Bx="Refresh the page to register again.",xx="Registration completed",zx="Animation",Ox="Stop animation",Dx="Start animation",Ex="Hire as Apprentice",Lx="Technologies I Work With",Xx="I can contribute with",Nx="Skills",Hx="Creating reusable components in React",jx="Manipulating state with useState",Rx="Form validation",Mx="Responsiveness for different devices",Yx="Organization and structuring of components",Tx="Web page development",Vx="Creating interactive forms",Gx="Maintaining existing interfaces",Zx="Fixing errors in applications",Qx="Profile",Fx={home:PB,about:JB,contact:KB,titleSection2:qB,titleSection_2:IB,titleSection3:_B,titleSection_4:$B,titleSection1:ex,seeProjects:tx,projects:nx,academy:ax,origami:lx,recipes:ix,register:rx,userName:sx,age:ox,password:ux,confirmPassword:cx,phoneNumber:fx,alreadyRegistered:dx,viewPassword:hx,hidePassword:gx,name:mx,errorName:Ax,errorAge:px,errorEmail:vx,errorPassword:wx,errorConfirm:bx,errorName2:yx,perfilError:Cx,successRegister:Sx,registerAgain:Bx,successRegister2:xx,animation:zx,stopAnimation:Ox,startAnimation:Dx,contactTitle:Ex,technologies:Lx,contribute:Xx,skills:Nx,pSkills1:Hx,pSkills2:jx,pSkills3:Rx,pSkills4:Mx,pSkills5:Yx,pContribute1:Tx,pContribute2:Vx,pContribute3:Gx,pContribute4:Zx,profile:Qx},kx="Home",Wx="Sobre mim",Ux="Contatos",Px="Olá, sou o Apolo. Este é portfólio, eu sei um pouco de HTML, CSS e um pouco de JavaScript.",Jx="Eu estou cursando React JSX. Eu fiz alguns projetos em HTML, CSS  e JavaScript, e apenas um em React JSX. Este projeto está sendo desenvolvido com React JSX",Kx="Sou desenvolvedor Front-End em formação com conhecimento em HTML, CSS, JavaScript e React.",qx="Atualmente estou buscando minha primeira oportunidade como jovem Aprendiz na área de Tecnologia da Informação, onde possa aplicar meus conhecimentos em desenvolvimento web e continuar evoluindo profissionalmente.",Ix="Olá, clique aqui para ver meus projetos.",_x="Ver projetos",$x="Meus projetos",e7="Academia",t7="Origame",n7="Receitas",a7="Cadastro",l7="Nome do úsuario",i7="Idade",r7="Senha",s7="Confirmar senha",o7="Número de telefone",u7="Já cadastrado",c7="Ver senha",f7="Ocultar senha",d7="Nome",h7="Nome muito curto",g7="Você deve ter pelo menos 5 anos!",m7="Email inválido",A7="O campo deve ser preenchido",p7="Senhas não coincidem",v7="Preencha o campo",w7="Nenhum úsuario cadastrado",b7="Sucesso!",y7="Reinicie a página para cadastrar novamente",C7="Animação",S7="Parar animação",B7="Iniciar animação",x7="Contratar como Aprendiz",z7="Tecnologias que utilizo",O7="Posso contribuir com",D7="Habilidades",E7="Criação de componentes reutilizáveis em React",L7="Manipulação de estado com useState",X7="Validação de formulários",N7="Responsividade para diferentes dispositivos",H7="Organização e estruturação de componentes",j7="Desenvolvimento de páginas web",R7="Criação de formulários interativos",M7="Manutenção de interfaces existentes",Y7="Correção de erros em aplicações",T7="Perfil",V7={home:kx,about:Wx,contact:Ux,titleSection2:Px,titleSection_2:Jx,titleSection3:Kx,titleSection_4:qx,titleSection1:Ix,seeProjects:_x,projects:$x,academy:e7,origami:t7,recipes:n7,register:a7,userName:l7,age:i7,password:r7,confirmPassword:s7,phoneNumber:o7,alreadyRegistered:u7,viewPassword:c7,hidePassword:f7,name:d7,errorName:h7,errorAge:g7,errorEmail:m7,errorPassword:A7,errorConfirm:p7,errorName2:v7,perfilError:w7,successRegister:b7,registerAgain:y7,animation:C7,stopAnimation:S7,startAnimation:B7,contactTitle:x7,technologies:z7,contribute:O7,skills:D7,pSkills1:E7,pSkills2:L7,pSkills3:X7,pSkills4:N7,pSkills5:H7,pContribute1:j7,pContribute2:R7,pContribute3:M7,pContribute4:Y7,profile:T7};bt.use(mC).init({resources:{en:{translation:Fx},pt:{translation:V7}},lng:"pt",fallbackLng:"pt",interpolation:{escapeValue:!1}});vp.createRoot(document.getElementById("root")).render(x.jsx(L.StrictMode,{children:x.jsx(d1,{children:x.jsx(UB,{})})}));
