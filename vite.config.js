@@ -6,6 +6,11 @@ export default defineConfig({
   plugins: [react()],
   base: "/portfolio",
   server: {
-    port: 3200
+    port: 3200,
+    open: true,
+    watch: {
+      ignored: './node_modules/',
+      ['./src/main.jsx']: true,
+    }
   }
 })

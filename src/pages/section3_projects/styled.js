@@ -14,6 +14,7 @@ export const DivProjects = styled.div`
   }
 
   ul li {
+    perspective: 1000px;
     display: flex;
     justify-content: center;
   }
@@ -25,16 +26,34 @@ export const DivProjects = styled.div`
     margin: auto;
     width: 300px;
     border-radius: 0.5em;
-    background-color: #2a2a2a;
     display: inline-flex;
     justify-content: center;
     align-items: center;
     height: 7dvh;
     position: relative;
+    color: ${({ theme }) => theme.text};
+    overflow: hidden;
+    z-index: 1;
+    background-color: ${props => props.theme.backgroundBtn};
+    color: white;
 
     &:hover {
-      transform: translateY(-10px) scale(1.1);
+      transform: translateY(-10px) scale(1.1) rotateX(25deg);
       box-shadow: ${props => props.theme.shadowLinkProjects};
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background-color: #6200ea;
+      clip-path: circle(0% at 50% 100%);
+      transition: .6s;
+    }
+
+    &:hover::before {
+      clip-path: circle(100% at 50% 50%);
     }
   }
 
@@ -42,6 +61,6 @@ export const DivProjects = styled.div`
 
   .ul:hover .a-projects:not(:hover) {
     opacity: .6;
-    filter: blur(2px);
+    filter: blur(1.5px) grayscale(0.5);
   }
 `;

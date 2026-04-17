@@ -17,6 +17,7 @@ export const GlboalStyle = createGlobalStyle`
         overflow-y: auto;
         scroll-snap-type: y mandatory;
     }
+
     #root {
         min-height: 100dvh;
         background-color: ${props => props.theme.background};
@@ -34,26 +35,22 @@ export const GlboalStyle = createGlobalStyle`
                 top: 0;
                 z-index: 99;
                 width: 250px;
-                background-color: ${props => props.theme.background};
-                backdrop-filter: blur(0px);
-                box-shadow: ${props => props.theme.shadow};
+                box-shadow: ${props => props.theme.shadowNav};
             }
+            
             header div, header {
                 grid-column: 2 / -1;
                 align-items: center;
                 display: flex;
                 justify-content: end;
-                /* z-index: 0; */
-                /* background-color: ${props => props.theme.backgroundHeader}; */
                 height: 80px;
-                /* position: ; */
             }
             
             header {
                 position: relative;
                 width: 100%;
-                /* box-shadow: ${props => props.theme.shadow}; */
             }
+
             main {
                 grid-column: 2 / -1;
                 flex: 1;
@@ -65,6 +62,7 @@ export const GlboalStyle = createGlobalStyle`
                 justify-content: center;
                 grid-row: 2 / -1;
             }
+
             footer {
                 position: relative;
                 bottom: 0;

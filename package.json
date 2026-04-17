@@ -5,7 +5,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "agrvai": "vite",
+    "compartilhaae": "vite --host",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",

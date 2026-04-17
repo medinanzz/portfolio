@@ -7,9 +7,11 @@ import { ThemeProvider } from "styled-components";
 import { darkTheme, lightTheme } from "./theme/theme";
 import { GlboalStyle } from "./style/resetStyle";
 import { ButtonTheme } from "./containers/buttonTheme";
+import { ButtonMenu } from "./containers/buttonMenu";
+import Swal from "sweetalert2";
 
 export function LayoutApp() {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem("theme") || "light";
   });
@@ -25,8 +27,9 @@ export function LayoutApp() {
   return (
     <ThemeProvider theme={theme === "dark" ? darkTheme : lightTheme}>
       <GlboalStyle />
-      <HeaderPage onOpenMenu={() => setMenuOpen(true)} />
-      <NavBarPage open={menuOpen} onClose={() => setMenuOpen(false)} />
+      <HeaderPage />
+      <NavBarPage isOpen={isOpen} onClose={() => setIsOpen(false)} />
+      <ButtonMenu toggleMenu={() => setIsOpen(!isOpen)} isOpen={isOpen} />
       <ButtonTheme
         setTheme={setTheme}
         theme={theme}

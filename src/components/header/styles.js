@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const DivHeader = styled.div`
   display: flex;
-  justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
   box-shadow: ${props => props.theme.shadow};
@@ -18,7 +17,7 @@ export const DivHeader = styled.div`
     margin: 0;
   }
 
-  @media screen and (width > 700px) {
+  @media screen and (width >= 700px) {
     position: fixed;
     z-index: 10;
     h1 {
@@ -59,6 +58,7 @@ export const DivTranslation = styled.div`
   display: flex;
   flex-direction: row;
   gap: 1em;
+  margin-left: 6em;
 
   & button {
     overflow: hidden;

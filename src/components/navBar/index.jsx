@@ -1,30 +1,19 @@
 // import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { BtnPerfil, NavContainer, StyledLink, UlContainer } from "./styles";
+import { DivUl, NavContainer, UlContainer } from "./styles";
 import { useTranslation } from "react-i18next";
 import { Link, useNavigate } from "react-router-dom";
 import { FiX } from "react-icons/fi";
 import Swal from "sweetalert2";
 import withReactContent from 'sweetalert2-react-content';
-import styled from "styled-components";
 
-const DivPerfil = styled.div`
-  text-align: left;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  /* position: absolute; */
-`;
-
-export function NavBarPage({ open, onClose }) {
+export function NavBarPage({ onClose, isOpen }) {
   const MySwal = withReactContent(Swal);
-   const userString = sessionStorage.getItem("user");
+  const userString = sessionStorage.getItem("user");
   const user = userString ? JSON.parse(userString) : null;
   const navigate = useNavigate();
   const { t } = useTranslation();
   const [isRegistered, setIsRegistered] = useState(false);
-  // const [seePerfil, setSeePerfil] = useState(false);
 
   useEffect(() => {
     const checkRegistered = () => {
@@ -78,56 +67,55 @@ export function NavBarPage({ open, onClose }) {
     } },
   ]
   return (
-    <NavContainer className={open ? "open" : ""}>
-      <button className="close-btn btn-img-menu" onClick={onClose}>
-        <FiX size={20} />
-      </button>
+    <NavContainer isOpen={isOpen}>
       <h1 className="t1">
         <span className="t-span">&lt;/AM&gt;</span>
       </h1>
-      <UlContainer style={{ paddingTop: '1em', }}>
-        {btnsNav.map((btns, i) => (
-          <li key={i}>
-            <button onClick={btns.click}>{btns.text}</button>
+      <DivUl>
+        <UlContainer>
+          {btnsNav.map((btns, i) => (
+            <li key={i}>
+              <button onClick={btns.click}>{btns.text}</button>
+            </li>
+          ))}
+          <li>
+            <a onClick={onClose} href="https://wa.me/555181637935?text=Olá,%20tenho%20interesse%20em%20te%20contratar%20como%20Jovem%20Aprendiz">{t("contactTitle")}</a>
           </li>
-        ))}
-        <li>
-          <a onClick={onClose} href="https://wa.me/555181637935?text=Olá,%20tenho%20interesse%20em%20te%20contratar%20como%20Jovem%20Aprendiz">{t("contactTitle")}</a>
-        </li>
-      </UlContainer>
-      <ul style={{ listStyle: "none" }}>
-        <li>
-          <StyledLink
-            onClick={() => {
-              onClose();
-            }}
-            title={isRegistered ? 'Já registrado' : ''}
-            to="/registerFake"
-            style={{
-              pointerEvents: isRegistered ? "none" : "auto",
-              opacity: isRegistered ? 0.5 : 1,
-            }}
-          >
-            {isRegistered ? t("alreadyRegistered") : t("register")}
-          </StyledLink>
-        </li>
-        <li>
-          <BtnPerfil onClick={() => { SeePerfil()}}>
-            {t("profile")}
-          </BtnPerfil>
-        </li>
+        </UlContainer>
+        <UlContainer style={{ listStyle: "none" }}>
+          <li>
+            <Link
+              onClick={() => {
+                onClose();
+              }}
+              title={isRegistered ? 'Já registrado' : ''}
+              to="/registerFake"
+              style={{
+                pointerEvents: isRegistered ? "none" : "auto",
+                opacity: isRegistered ? 0.5 : 1,
+              }}
+            >
+              {isRegistered ? t("alreadyRegistered") : t("register")}
+            </Link>
+          </li>
+          <li>
+            <button onClick={() => { SeePerfil()}}>
+              {t("profile")}
+            </button>
+          </li>
 
-        <li>
-          <StyledLink
-            onClick={() => {
-              onClose();
-            }}
-            to="/extras"
-          >
-            Extras
-          </StyledLink>
-        </li>
-      </ul>
+          <li>
+            <Link
+              onClick={() => {
+                onClose();
+              }}
+              to="/extras"
+            >
+              Extras
+            </Link>
+          </li>
+        </UlContainer>
+      </DivUl>
     </NavContainer>
   );
 }

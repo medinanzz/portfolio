@@ -10,7 +10,7 @@ export const DivThemeMenu = styled.div`
   align-items: center;
 `;
 
-export function HeaderPage({ onOpenMenu }) {
+export function HeaderPage() {
   const { i18n } = useTranslation();
 
   return (
@@ -28,11 +28,6 @@ export function HeaderPage({ onOpenMenu }) {
             EN
           </ButtonGlobalStyle>
         </DivTranslation>
-        <DivThemeMenu>
-          <BtnOpenMenu onClick={onOpenMenu}>
-            <FiMenu size={20} />
-          </BtnOpenMenu>
-        </DivThemeMenu>
       </DivHeader>
     </header>
   );

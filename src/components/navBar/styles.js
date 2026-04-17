@@ -1,198 +1,160 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+
 export const NavContainer = styled.nav`
+  --default-value: 1em;
+
+  width: 90%;
+  max-width: 700px;
+  border-radius: 2em;
   position: fixed;
-  top: 0;
-  right: -260px;
-  width: 260px;
-  bottom: 0;
-  background: ${props => props.theme.backgroundNav};
-  backdrop-filter: blur(10px);
-  padding: 2rem 1rem;
-  transition: 0.3s ease;
-  z-index: 999;
-  display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+  left: 50%;
+  transform: translateX(-50%) rotateX(0deg);
+  display: flex;
+  top: ${({ isOpen }) =>
+    isOpen ? "calc(var(--default-value) + .5em)" : "-100%"};
+  padding: calc(0.5em + var(--default-value));
+  gap: 2em;
+  z-index: 999;
+  background-color: ${({ theme }) => theme.backgroundNav};
+  backdrop-filter: blur(2px);
+  box-shadow: ${({ theme }) => theme.shadowNav};
 
-  &.open {
-    box-shadow: ${props => props.theme.shadow};
-    right: 0;
+  @media screen and (width >= 500px) {
+    transition: 0.3s;
   }
 
-  .close-btn {
-    background: none;
-    border: none;
-    color: ${props => props.theme.text};
-    font-size: 1.5rem;
-    cursor: pointer;
-    margin-bottom: 2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: .4em;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    transition: all 0.3s;
-    
-    &:hover {
-      box-shadow: ${props => props.theme.shadow};
-      /* box-shadow: 0 0 10px rgb(255 255 255 / 0.5); */
-    }
-  }
-
-  h1 {
+  & h1 {
     display: none;
-    color: ${props => props.theme.text};
-  }
-
-  button {
-    cursor: pointer;
-  }
-
-  ul:nth-of-type(1) {
-    margin-top: 1em;
-  }
-  ul:nth-of-type(2) {
-    gap: .5em;
-    display: flex;
-    flex-direction: column;
   }
 
   @media screen and (width >= 700px) {
-    position: relative;
     left: 0;
-    z-index: 0;
-    transform: translateX(0);
+    height: 100dvh;
+    transform: translateX(0%);
+    backdrop-filter: blur(10px);
+    border-radius: 0;
+    font-size: 1.05em;
+    padding-bottom: 2.5em;
 
-    .btn-img-menu {
-      display: none;
-    }
-
-    ul:nth-of-type(1) {
-      flex: 1;
-    }
-    h1 {
+    & h1 {
       display: block;
-      }
     }
+  }
 `;
 
 export const UlContainer = styled.ul`
-  list-style: none;
-  padding-left: 0.5em;
-  margin: 0;
+  width: 100%;
+  height: 100%;
   display: flex;
-  flex-direction: column;
-  gap: 0.7rem;
+  justify-content: space-evenly;
+  list-style: none;
+  align-items: center;
 
-  button, a {
-    color: ${props => props.theme.text};
-    text-decoration: none;
-    font-size: 1.2rem;
-    background-color: transparent;
-    width: 90%;
-    position: relative;
-    border: 0;
-    height: 7dvh;
-    display: flex;
-    border-radius: .5em;
-    padding-left: 1em;
-    transition: all 0.3s;
-    align-items: center;
-
-    &::before {
-      content: '';
-      background-color: ${props => props.theme.lineBeforeLinks};
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 0%;
-      height: 2px;
-      position: absolute;
-    }
-
-    &:hover::before {
-      width: 100%;
-    }
-
-    @media screen and (width >= 610px) {
-      &::before {transition: .3s;}
-    }
-  }
-
+  & button,
   a {
-    height: 10dvh;
-  }
-`;
-
-export const StyledLink = styled(Link)`
-  color: ${props => props.theme.text};
-    text-decoration: none;
-    font-size: 1.2rem;
     background-color: transparent;
-    width: 90%;
-    border: 0;
-    height: 7dvh;
-    display: flex;
-    padding-left: 1em;
-    transition: all 0.3s;
-    align-items: center;
-    border-radius: .5em;
+    cursor: pointer;
+    color: ${({ theme }) => theme.text};
+    border: none;
+    text-decoration: none;
     position: relative;
 
     &::before {
-      background-color: ${props => props.theme.lineBeforeLinks};
+      content: "";
       height: 2px;
-      width: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      /* transition: .3s; */
-      position: absolute;
+      display: block;
+      width: 100%;
+      opacity: 0;
+      transition: 0s;
+      background-color: ${({ theme }) => theme.lineBeforeLinks};
       bottom: 0;
-      content: '';
+      position: absolute;
+      left: 0%;
     }
 
     &:hover::before {
+      opacity: 1;
+    }
+
+    @media screen and (width >= 700px) {
+      text-align: start;
+      display: block;
+      width: 100%;
+
+      &::before {
+        width: 0%;
+        transition: 0.3s;
+        opacity: 1;
+        height: 2.6px;
+      }
+
+      &:hover::before {
+        width: 100%;
+      }
+    }
+  }
+
+  & button {
+    font-size: 1.1em;
+  }
+
+  &:nth-of-type(2) {
+    justify-content: space-around;
+    padding-right: 1em;
+  }
+
+  &:nth-of-type(1) {
+    @media screen and (width < 500px) {
+      gap: 1em;
+      justify-content: space-between;
+      padding-left: 0.5em;
+    }
+
+    @media screen and (width >= 500px) {
+      gap: 0em;
+    }
+
+    @media screen and (width >= 700px) {
+        gap: 1.5em;
+    }
+  }
+
+  @media screen and (width >= 700px) {
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    padding-top: 1em;
+    gap: 1.2em;
+    font-size: 1.3em;
+
+    & li {
       width: 100%;
     }
 
-    @media screen and (width >= 610px) {
-      &::before {transition: .3s;}
+    & a {
+      width: 100%;
     }
+
+    &:nth-of-type(2) {
+      justify-content: end;
+      gap: 1.2em;
+    }
+  }
 `;
 
-export const BtnPerfil = styled.button`
-  color: ${props => props.theme.text};
-    text-decoration: none;
-    font-size: 1.2rem;
-    background-color: transparent;
-    width: 90%;
-    border: 0;
-    height: 7dvh;
+export const DivUl = styled.div`
+  width: 100%;
+  display: flex;
+  gap: 1em;
+  flex-direction: column;
+  height: 100%;
+
+  @media screen and (width >= 700px) {
     display: flex;
-    padding-left: 1em;
-    position: relative;
-    transition: all 0.3s;
-    border-radius: 0.5em;
-    align-items: center;
-
-    &::before {
-      content: '';
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: ${props => props.theme.lineBeforeLinks};
-      width: 0;
-      height: 2px;
-      position: absolute;
-    }
-
-    &:hover::before {width: 100%;}
-
-    @media screen and (width >= 610px) {
-      &::before {transition: .3s;}
-    }
+    justify-content: space-between;
+    align-items: start;
+    flex-direction: column;
+  }
 `;

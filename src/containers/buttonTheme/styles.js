@@ -15,6 +15,7 @@ export const BtnTheme = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 99999;
   box-shadow: ${props => props.theme.btnShadowTheme};
   transition: .4s;
 
