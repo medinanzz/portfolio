@@ -7,8 +7,7 @@ export const SectionAllStyle = styled.section`
   align-items: center;
   scroll-snap-align: start;
   flex-direction: column;
-  
-  
+  width: 100%;
 
   .card {
     height: 100%;
@@ -21,6 +20,7 @@ export const SectionAllStyle = styled.section`
     animation-timeline: view();
     -webkit-animation-range: entry 60% cover 50%;
     animation-range: entry 60% cover 50%;
+    scroll-padding-top: 1em;
 
     @media screen and (width >= 600px) {
       animation-range: entry 50% cover 50%;

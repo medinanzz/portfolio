@@ -34,7 +34,7 @@ export const GlboalStyle = createGlobalStyle`
                 position: fixed;
                 top: 0;
                 z-index: 99;
-                width: 250px;
+                width: 300px;
                 box-shadow: ${props => props.theme.shadowNav};
             }
             
@@ -66,8 +66,8 @@ export const GlboalStyle = createGlobalStyle`
             footer {
                 position: relative;
                 bottom: 0;
-                grid-column: 1 / -1;
-                margin-left: 250px;
+                grid-column: 2 / -1;
+                margin-left: 3em;
             }
         }
     }
