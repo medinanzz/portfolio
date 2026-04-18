@@ -1,11 +1,13 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlboalStyle = createGlobalStyle`
+    @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
     * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        font-family: "Poppins", Arial, Helvetica, sans-serif;
+        font-family: "Nunito Sans", sans-serif;
     }
 
     html, body {
@@ -31,7 +33,6 @@ export const GlboalStyle = createGlobalStyle`
             nav {
                 grid-row: 1 / -1;
                 grid-column: 1 / -1;
-                position: fixed;
                 top: 0;
                 z-index: 99;
                 width: 300px;

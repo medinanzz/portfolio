@@ -46,11 +46,11 @@ export function NavBarPage({ onClose, isOpen }) {
     if (user) {
       MySwal.fire({
         title: `Perfil`,
-        html: <DivPerfil>
+        html: <div>
           <p><strong>{t('name')}:</strong> {user?.userName}</p>
           <p><strong>{t('age')}:</strong> {user?.ageUser}</p>
           <p><strong>Email:</strong> {user?.emailUser}</p>
-        </DivPerfil>,
+        </div>,
       });
     }
   }
@@ -82,6 +82,7 @@ export function NavBarPage({ onClose, isOpen }) {
             <a onClick={onClose} href="https://wa.me/555181637935?text=Olá,%20tenho%20interesse%20em%20te%20contratar%20como%20Jovem%20Aprendiz">{t("contactTitle")}</a>
           </li>
         </UlContainer>
+        <hr />
         <UlContainer style={{ listStyle: "none" }}>
           <li>
             <Link
@@ -99,7 +100,7 @@ export function NavBarPage({ onClose, isOpen }) {
             </Link>
           </li>
           <li>
-            <button onClick={() => { SeePerfil()}}>
+            <button title="Ver perfil" onClick={SeePerfil}>
               {t("profile")}
             </button>
           </li>

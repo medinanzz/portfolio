@@ -2,9 +2,12 @@ import styled from "styled-components";
 
 export const NavContainer = styled.nav`
   --default-value: 1em;
+  --width: 90%;
+  --max-width: 700px;
+  --height-li: 10dvh;
 
-  width: 90%;
-  max-width: 700px;
+  width: var(--width);
+  max-width: var(--max-width);
   border-radius: 2em;
   position: fixed;
   flex-direction: column;
@@ -15,7 +18,7 @@ export const NavContainer = styled.nav`
   top: ${({ isOpen }) =>
     isOpen ? "calc(var(--default-value) + .5em)" : "-100%"};
   padding: calc(0.5em + var(--default-value));
-  gap: 2em;
+  gap: calc(var(--default-value) + var(--default-value));
   z-index: 999;
   background-color: ${({ theme }) => theme.backgroundNav};
   backdrop-filter: blur(2px);
@@ -27,6 +30,13 @@ export const NavContainer = styled.nav`
 
   & h1 {
     display: none;
+    margin: 1em 0 0 .5em;
+  }
+
+  & hr {
+    display: none;
+    width: 100%;
+    height: 2px;
   }
 
   @media screen and (width >= 700px) {
@@ -36,7 +46,18 @@ export const NavContainer = styled.nav`
     backdrop-filter: blur(10px);
     border-radius: 0;
     font-size: 1.05em;
-    padding-bottom: 2.5em;
+    position: fixed;
+    padding: 0;
+    top: 0;
+
+    ul {
+      padding: 0;
+      gap: 0 !important;
+    }
+    
+    hr {
+      display: block;
+    }
 
     & h1 {
       display: block;
@@ -80,18 +101,28 @@ export const UlContainer = styled.ul`
 
     @media screen and (width >= 700px) {
       text-align: start;
-      display: block;
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      padding: 10px;
       width: 100%;
+      height: 100%;
+      padding-left: .8em;
+      background-color: ${({ theme }) => theme.backgroundNav};
 
-      &::before {
-        width: 0%;
-        transition: 0.3s;
-        opacity: 1;
-        height: 2.6px;
+      &:hover {
+        background-color: ${({ theme }) => theme.buttonsNavHover};
+        padding-left: var(--default-value);
+        box-shadow: inset ${({ theme}) => theme.shadowButtonsHover} ;
       }
 
-      &:hover::before {
-        width: 100%;
+      &::before {
+        content: '';
+        height: 0;
+        width: 0;
+        opacity: 0;
+        display: inline;
+        position: relative;
       }
     }
   }
@@ -103,6 +134,10 @@ export const UlContainer = styled.ul`
   &:nth-of-type(2) {
     justify-content: space-around;
     padding-right: 1em;
+
+    @media screen and (width >= 700px) {
+      padding: 0;
+    }
   }
 
   &:nth-of-type(1) {
@@ -117,7 +152,8 @@ export const UlContainer = styled.ul`
     }
 
     @media screen and (width >= 700px) {
-        gap: 1.5em;
+        gap: 1em;
+        width: 100%;
     }
   }
 
@@ -130,6 +166,7 @@ export const UlContainer = styled.ul`
     font-size: 1.3em;
 
     & li {
+      height: var(--height-li);
       width: 100%;
     }
 
@@ -139,7 +176,7 @@ export const UlContainer = styled.ul`
 
     &:nth-of-type(2) {
       justify-content: end;
-      gap: 1.2em;
+      gap: .5em;
     }
   }
 `;

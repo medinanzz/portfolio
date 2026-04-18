@@ -21,6 +21,8 @@ export const lightTheme = {
 
   backgroundNav: "#fafafab9",
   shadowNav: "0 0 10px rgb(0 0 0 / .5)",
+  buttonsNavHover: '#f1f1f1',
+  shadowButtonsHover: '0 0 10px rgb(0 0 0 / .1)'
 
   /* =-=-=-=-=-= */
 };
@@ -48,6 +50,8 @@ export const darkTheme = {
   backgroundNav: "#171717b9",
   backgroundProjectsButtons: 'rgba(100, 108, 255, 0.2)',
   shadowNav: "0 0 10px rgb(255 255 255 / .1)",
+  buttonsNavHover: '#424242',
+  shadowButtonsHover: '0 0 10px rgb(255 255 255 / .1)'
 
   /* =-=-=-=-=-=-=-= */
 };

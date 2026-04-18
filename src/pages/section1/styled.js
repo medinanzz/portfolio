@@ -59,6 +59,7 @@ export const SectionAllStyle = styled.section`
 
   h1 {
     text-align: center;
+    width: 60%;
   }
 `;
 
@@ -96,7 +97,7 @@ export const Divprojectsbtn = styled.div`
     top: 0;
     z-index: -1;
     position: absolute;
-    transition: all .6s;
+    transition: .3s;
     border-radius: 0 1.5em 1.5em 0;
   }
 

@@ -5,6 +5,7 @@ export const DivAbout = styled.div`
     gap: .8em;
     align-items: center;
     flex-direction: column;
+    width: 90%;
     
     p {
         width: 90%;
